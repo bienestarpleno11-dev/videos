@@ -1,28 +1,28 @@
 {
-  "version": 1,
+  "version": 2,
   "actualizado": "2026-11-16",
   "anuncio": {
-    "activo": false,
-    "emoji": "📚",
-    "titulo": "",
-    "texto": "",
-    "boton": "Ver más",
-    "link": "https://habitosfixhoy.online"
+    "activo": true,
+    "emoji": "💸",
+    "titulo": "¿No sabés en qué se te va el sueldo?",
+    "texto": "Plata en Orden te muestra paso a paso cómo ordenar tu plata en 21 días. Acceso al instante.",
+    "boton": "Ver Plata en Orden · US$ 18",
+    "link": "https://pay.hotmart.com/G108156813M?sck=app_anuncio"
   },
-  "tienda": "https://habitosfixhoy.online",
+  "tienda": "https://habitosfixhoy.online/?utm_source=app_tufixhoy",
   "destacado": "plata",
   "guias": {
-    "Hábitos que Duran": "",
+    "Hábitos que Duran": "https://pay.hotmart.com/R108133080X?sck=app_tufixhoy",
     "Modo Calma": "",
-    "Dormí Profundo": "",
-    "Menos Azúcar Más Vida": "",
-    "Comer Sano Sin Gastar": "",
-    "Desconectate": "",
-    "Mañanas que Cambian tu Día": "",
-    "Plata en Orden": "",
-    "Respirá: salí de tus deudas": "",
-    "El Hábito de Sembrar en Casa": "",
-    "El Hábito de Ganar Extra": ""
+    "Dormí Profundo": "https://pay.hotmart.com/T108084849J?sck=app_tufixhoy",
+    "Menos Azúcar Más Vida": "https://pay.hotmart.com/P108108221Y?sck=app_tufixhoy",
+    "Comer Sano Sin Gastar": "https://pay.hotmart.com/J108103337P?sck=app_tufixhoy",
+    "Desconectate": "https://pay.hotmart.com/P108110767R?sck=app_tufixhoy",
+    "Mañanas que Cambian tu Día": "https://pay.hotmart.com/U108110772N?sck=app_tufixhoy",
+    "Plata en Orden": "https://pay.hotmart.com/G108156813M?sck=app_tufixhoy",
+    "Respirá: salí de tus deudas": "https://pay.hotmart.com/Q108186428A?sck=app_tufixhoy",
+    "El Hábito de Sembrar en Casa": "https://pay.hotmart.com/Q108178539Y?sck=app_tufixhoy",
+    "El Hábito de Ganar Extra": "https://pay.hotmart.com/F108268568X?sck=app_tufixhoy"
   },
   "consejos": [
     "Antes de comprar algo que no planeaste, esperá 24 horas. Si mañana lo seguís queriendo, pensalo de nuevo.",
@@ -111,5 +111,17 @@
       "a": true,
       "e": "La luz de la mañana le marca al cuerpo que empezó el día, y a la noche te da sueño a horario."
     }
-  ]
+  ],
+  "precios": {
+    "Hábitos que Duran": "US$ 19",
+    "Dormí Profundo": "US$ 7",
+    "Menos Azúcar Más Vida": "US$ 17",
+    "Comer Sano Sin Gastar": "US$ 8",
+    "Desconectate": "US$ 17",
+    "Mañanas que Cambian tu Día": "US$ 17",
+    "Plata en Orden": "US$ 18",
+    "Respirá: salí de tus deudas": "US$ 5",
+    "El Hábito de Sembrar en Casa": "US$ 12",
+    "El Hábito de Ganar Extra": "US$ 15"
+  }
 }

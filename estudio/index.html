@@ -197,7 +197,7 @@ label.f{display:flex;flex-direction:column;gap:5px;font-weight:800;font-size:.85
   <div class="card stack">
     <label class="f">Link general de la tienda<input type="url" id="tienda"></label>
     <label class="f">Tema destacado (lleva la etiqueta “El más elegido”)<select id="destacado"></select></label>
-    <span class="lab">Link de venta de cada guía (si lo dejás vacío, va a la tienda):</span>
+    <span class="lab">Link de pago y precio de cada guía (si dejás el link vacío, va a la tienda). Dejá el “?sck=app_tufixhoy” al final del link: así Hotmart te muestra qué ventas vinieron de la app.</span>
     <div class="stack" id="guias"></div>
   </div>
   <h2>💡 Consejos del día <span class="chip" id="nCons"></span></h2>
@@ -238,7 +238,7 @@ label.f{display:flex;flex-direction:column;gap:5px;font-weight:800;font-size:.85
     <a class="btn ghost" href="https://tufixhoy.netlify.app" target="_blank" rel="noopener">Abrir Tu Fix Hoy</a>
     <button class="btn ghost" id="changePin">Cambiar PIN</button>
     <button class="btn ghost" id="lockNow">Bloquear ahora</button>
-    <p class="note">Tu Fix Hoy Estudio · versión 1.0</p>
+    <p class="note">Tu Fix Hoy Estudio · versión 1.1</p>
   </div>
 </section>
 </main>
@@ -391,8 +391,11 @@ function renderCont(){
   const sel=$("destacado");sel.innerHTML=Object.keys(TEMAS).map(k=>`<option value="${k}">${esc(TEMAS[k].name)}</option>`).join("");
   bind("destacado",e=>D.destacado=e.value,e=>e.value=D.destacado||"plata");
   D.guias=D.guias||{};
-  $("guias").innerHTML=Object.keys(D.guias).map((g,i)=>`<label class="f">${esc(g)}<input type="url" data-g="${i}" placeholder="https://… (vacío = tienda)"></label>`).join("");
-  const gk=Object.keys(D.guias);$("guias").querySelectorAll("input").forEach(inp=>{const g=gk[+inp.dataset.g];inp.value=D.guias[g]||"";inp.oninput=()=>{D.guias[g]=inp.value.trim();saveDraft()}});
+  D.precios=D.precios||{};
+  $("guias").innerHTML=Object.keys(D.guias).map((g,i)=>`<div class="item"><strong style="font-size:.9rem">${esc(g)}</strong><div class="row"><input type="url" data-g="${i}" placeholder="Link de pago https://… (vacío = tienda)" style="flex:1"><input type="text" data-p="${i}" placeholder="Precio" style="width:96px"></div></div>`).join("");
+  const gk=Object.keys(D.guias);
+  $("guias").querySelectorAll("[data-g]").forEach(inp=>{const g=gk[+inp.dataset.g];inp.value=D.guias[g]||"";inp.oninput=()=>{D.guias[g]=inp.value.trim();saveDraft()}});
+  $("guias").querySelectorAll("[data-p]").forEach(inp=>{const g=gk[+inp.dataset.p];inp.value=D.precios[g]||"";inp.oninput=()=>{const v=inp.value.trim();if(v)D.precios[g]=v;else delete D.precios[g];saveDraft()}});
   renderCons();renderRet();
 }
 function move(arr,i,d){const j=i+d;if(j<0||j>=arr.length)return;[arr[i],arr[j]]=[arr[j],arr[i]]}
@@ -472,7 +475,7 @@ $("tokTest").onclick=async()=>{if(!token())return setMsg("tokMsg","err","Todaví
     if(r.status===401)throw new Error("El token no es válido.");if(!r.ok)throw new Error("El token no tiene acceso al repositorio “"+GH.repo+"”.");
     const j=await r.json();if(j.permissions&&!j.permissions.push)throw new Error("El token puede leer pero no escribir. Poné Contents: Read and write.");
     setMsg("tokMsg","ok","Conectado con "+esc(j.full_name)+" ✓")}catch(e){setMsg("tokMsg","err",esc(e.message))}};
-const DEF_TODO=[{t:"Abrir Tu Fix Hoy sin contarme en mi celular y mi compu",d:false},{t:"Crear el token de GitHub y cargarlo en Ajustes",d:false},{t:"Cargar los links de venta de cada guía",d:false},{t:"Generar el paquete de Android en PWABuilder",d:false},{t:"Conseguir 12 testers para Play Store",d:false}];
+const DEF_TODO=[{t:"Abrir Tu Fix Hoy sin contarme en mi celular y mi compu",d:false},{t:"Crear el token de GitHub y cargarlo en Ajustes",d:false},{t:"Subir Modo Calma a la tienda y cargar su link",d:false},{t:"Generar el paquete de Android en PWABuilder",d:false},{t:"Conseguir 12 testers para Play Store",d:false}];
 function renderTodo(){const L=LS.get("tfxe_todo",DEF_TODO);
   $("todo").innerHTML=L.map((x,i)=>`<li><input type="checkbox" data-i="${i}"${x.d?" checked":""}><span class="${x.d?"done":""}"></span><button class="icon-btn" data-del="${i}" style="margin-left:auto">×</button></li>`).join("");
   $("todo").querySelectorAll("li span").forEach((s,i)=>s.textContent=L[i].t);
