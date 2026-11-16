@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "actualizado": "2026-11-16",
+  "anuncio": {
+    "activo": false,
+    "emoji": "📚",
+    "titulo": "",
+    "texto": "",
+    "boton": "Ver más",
+    "link": "https://habitosfixhoy.online"
+  },
+  "tienda": "https://habitosfixhoy.online",
+  "destacado": "plata",
+  "guias": {
+    "Hábitos que Duran": "",
+    "Modo Calma": "",
+    "Dormí Profundo": "",
+    "Menos Azúcar Más Vida": "",
+    "Comer Sano Sin Gastar": "",
+    "Desconectate": "",
+    "Mañanas que Cambian tu Día": "",
+    "Plata en Orden": "",
+    "Respirá: salí de tus deudas": "",
+    "El Hábito de Sembrar en Casa": "",
+    "El Hábito de Ganar Extra": ""
+  },
+  "consejos": [
+    "Antes de comprar algo que no planeaste, esperá 24 horas. Si mañana lo seguís queriendo, pensalo de nuevo.",
+    "Tomá un vaso de agua apenas te levantes.",
+    "Si una tarea lleva menos de 2 minutos, hacela ahora.",
+    "Dejá el celular fuera del cuarto a la hora de dormir.",
+    "Caminá 10 minutos después de comer.",
+    "Antes de responder un mensaje que te enojó, esperá 10 minutos.",
+    "Escribí 3 cosas por las que estás agradecido hoy.",
+    "Hacé tu lista de compras antes de ir al súper y respetala.",
+    "Cuando sientas tensión, soltá los hombros y la mandíbula.",
+    "Hacé hoy un favor sin que te lo pidan.",
+    "Prepará esta noche lo que necesitás mañana temprano.",
+    "Elegí una sola prioridad para hoy y terminala primero.",
+    "Apagá las notificaciones de una app que te distrae.",
+    "Saludá por su nombre a alguien que te atiende."
+  ],
+  "retos": [
+    {
+      "q": "Acostarte y levantarte siempre a la misma hora ayuda a dormir mejor.",
+      "a": true,
+      "e": "El cuerpo tiene un reloj interno que funciona mejor con horarios regulares, incluso los fines de semana."
+    },
+    {
+      "q": "Las ganas fuertes de fumar duran horas si no fumás.",
+      "a": false,
+      "e": "Las ganas intensas suelen bajar en pocos minutos. Tener un plan para esos minutos ayuda mucho."
+    },
+    {
+      "q": "En la regla 50/30/20, el 20% va al ahorro o a pagar deudas.",
+      "a": true,
+      "e": "50% necesidades, 30% gustos y 20% ahorro o deudas. Es una guía simple para ordenar la plata."
+    },
+    {
+      "q": "Los jugos de fruta envasados casi nunca tienen azúcar.",
+      "a": false,
+      "e": "Muchos tienen bastante azúcar. Por eso conviene leer la etiqueta."
+    },
+    {
+      "q": "Mirar el celular en la cama puede hacer que te cueste más dormirte.",
+      "a": true,
+      "e": "Los estímulos de la pantalla mantienen la mente activa justo cuando querés que se calme."
+    },
+    {
+      "q": "Para formar un hábito conviene empezar con algo grande, así te motivás.",
+      "a": false,
+      "e": "Empezar con algo chico, de 2 minutos, hace mucho más fácil sostenerlo."
+    },
+    {
+      "q": "Exhalar más lento que lo que inhalás ayuda a calmarte.",
+      "a": true,
+      "e": "Las exhalaciones largas ayudan al cuerpo a pasar a un estado más tranquilo."
+    },
+    {
+      "q": "Los gastos hormiga no cambian nada en el mes.",
+      "a": false,
+      "e": "Un café o un delivery por día, sumados, pueden ser una parte importante del sueldo."
+    },
+    {
+      "q": "Si fallás un día, el hábito ya está perdido.",
+      "a": false,
+      "e": "Fallar un día no arruina el hábito. Lo importante es retomar al día siguiente."
+    },
+    {
+      "q": "Ayudar a otros también mejora tu propio bienestar.",
+      "a": true,
+      "e": "Los actos de amabilidad suelen hacer sentir bien a quien los da, no solo a quien los recibe."
+    },
+    {
+      "q": "Las legumbres son una forma barata de sumar proteína.",
+      "a": true,
+      "e": "Lentejas, garbanzos y porotos son económicos, rinden mucho y llenan."
+    },
+    {
+      "q": "Entrenar con alguien ayuda a ser más constante.",
+      "a": true,
+      "e": "Tener un compromiso con otra persona hace más difícil faltar."
+    },
+    {
+      "q": "Mirar noticias todo el día te mantiene más tranquilo.",
+      "a": false,
+      "e": "Estar todo el tiempo pendiente de las noticias suele subir la preocupación. Mejor una vez por día."
+    },
+    {
+      "q": "Tomar luz natural a la mañana ayuda a regular el sueño.",
+      "a": true,
+      "e": "La luz de la mañana le marca al cuerpo que empezó el día, y a la noche te da sueño a horario."
+    }
+  ]
+}

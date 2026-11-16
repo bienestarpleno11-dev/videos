@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#140D3A">
+<title>Tu Fix Hoy Estudio</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
+<style>
+:root{--bg:#F4F2FB;--surface:#fff;--ink:#17123A;--muted:#6B6690;--line:#E2DDF3;--violet:#5B35E6;--violet2:#8B5CFF;--deep:#140D3A;--accent:#E8590C;--soft:#FDEBDD;--ok:#1C8A5B;--ok-soft:#E0F2E9;--lime:#C9FF6B;--warn:#B54708;
+--display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Nunito Sans","Segoe UI",system-ui,sans-serif;--shadow:0 1px 2px rgba(23,18,58,.06),0 6px 18px rgba(23,18,58,.06);color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0C0920;--surface:#17123A;--ink:#EEEAFF;--muted:#A49EC8;--line:#2A2456;--soft:#3A2416;--ok:#4CC48A;--ok-soft:#163629;--shadow:none;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--body);padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em}
+h2{font-size:1.15rem;margin:26px 0 10px}
+p{margin:0}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+header{background:linear-gradient(140deg,#2A1B7A,var(--deep));color:#fff;padding:calc(14px + env(safe-area-inset-top,0px)) 0 18px}
+header .wrap{display:flex;align-items:center;gap:12px}
+.logo{width:42px;height:42px;border-radius:12px;flex:none;overflow:hidden}
+.logo img{width:100%;height:100%;display:block}
+header h1{font-size:1.15rem;line-height:1.1}
+header p{color:#BDB4F0;font-size:.85rem}
+.hbtn{margin-left:auto;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:8px 14px;font:800 .85rem var(--body);cursor:pointer}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+.lab{color:var(--muted);font-size:.85rem;font-weight:700}
+.big{font:800 3rem/1 var(--display);font-variant-numeric:tabular-nums}
+.hero{margin-top:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;background:linear-gradient(140deg,var(--violet2),var(--violet));color:#fff;border:0}
+.hero .lab{color:#E3DBFF}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:620px){.tiles.four{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tile .n{font:800 1.6rem/1.1 var(--display);font-variant-numeric:tabular-nums}
+.tile .sub{font-size:.78rem;color:var(--muted)}
+.legend{display:flex;gap:14px;font-size:.85rem;color:var(--muted);margin-bottom:8px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+svg text{fill:var(--muted);font:600 11px var(--body)}
+.bars{list-style:none;margin:0;padding:0}
+.bars li{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:center}
+.bars li:last-child{border:0}
+.bars .b{grid-column:1/-1;height:7px;background:var(--line);border-radius:9px;overflow:hidden}
+.bars .b i{display:block;height:100%;background:var(--violet);border-radius:9px}
+.bars .b.ok i{background:var(--ok)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;padding:6px 4px;border-bottom:1px solid var(--line)}
+td{padding:9px 4px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+td.r,th.r{text-align:right}
+tr:last-child td{border:0}
+.note{color:var(--muted);font-size:.85rem}
+.btn{border:0;border-radius:12px;padding:12px 16px;font:800 .95rem var(--body);background:var(--accent);color:#fff;cursor:pointer;text-align:center;text-decoration:none;display:inline-block}
+.btn.v{background:var(--violet)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sm{padding:8px 12px;font-size:.85rem;border-radius:10px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.full{width:100%}
+input[type=text],input[type=url],input[type=password],input[type=number],textarea,select{width:100%;padding:11px 12px;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:600 .95rem var(--body)}
+textarea{resize:vertical;min-height:64px;line-height:1.4}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--violet)}
+label.f{display:flex;flex-direction:column;gap:5px;font-weight:800;font-size:.85rem}
+.row{display:flex;gap:8px;align-items:center}
+.stack{display:flex;flex-direction:column;gap:12px}
+.sw{position:relative;width:48px;height:28px;flex:none}
+.sw input{opacity:0;position:absolute;inset:0;margin:0;cursor:pointer;z-index:1}
+.sw span{position:absolute;inset:0;border-radius:99px;background:var(--line);transition:background .2s}
+.sw span::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.sw input:checked+span{background:var(--ok)}
+.sw input:checked+span::after{transform:translateX(20px)}
+.item{border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
+.item-h{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:.8rem;color:var(--muted)}
+.icon-btn{border:0;background:none;color:var(--muted);font-size:1.05rem;cursor:pointer;padding:4px 6px;border-radius:8px}
+.icon-btn:hover{background:var(--line)}
+.preview{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(135deg,#F1ECFF,#FFF1E8);border:1.5px solid #D9CCFF;border-radius:18px;padding:14px;color:#17123A}
+.preview .em{font-size:1.8rem}
+.preview strong{font-family:var(--display);font-size:1.05rem;display:block}
+.preview p{color:#6B6690;font-size:.9rem;margin:4px 0 8px}
+.preview .btn{padding:8px 14px;font-size:.85rem}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabbar .in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.tab{background:none;border:0;font:inherit;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 4px;font-size:.7rem;font-weight:800;cursor:pointer}
+.tab .e{font-size:1.25rem;line-height:1;width:52px;height:30px;display:grid;place-items:center;border-radius:99px}
+.tab[aria-current="page"]{color:var(--violet)}
+.tab[aria-current="page"] .e{background:#ECE6FF}
+@media (prefers-color-scheme:dark){.tab[aria-current="page"]{color:#B9A6FF}.tab[aria-current="page"] .e{background:#2A2456}}
+.pubbar{position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:31;padding:10px 16px}
+.pubbar .in{max-width:720px;margin:0 auto;background:var(--deep);color:#fff;border-radius:16px;padding:10px 10px 10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.pubbar .in span{flex:1;font-weight:700;font-size:.9rem}
+.msg{border-radius:12px;padding:12px 14px;font-size:.92rem;font-weight:600}
+.msg.ok{background:var(--ok-soft);color:var(--ok)}
+.msg.err{background:var(--soft);color:var(--warn)}
+.msg.info{background:#ECE6FF;color:#3B2499}
+.skel{color:var(--muted)}
+.lock{min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(160deg,#2A1B7A,var(--deep))}
+.lock .card{max-width:360px;width:100%;text-align:center;display:flex;flex-direction:column;gap:10px}
+.lock .logo{width:72px;height:72px;margin:0 auto;border-radius:18px}
+.todo{list-style:none;padding:0;margin:10px 0 0}
+.todo li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+.todo li:last-child{border:0}
+.todo input{width:20px;height:20px;margin-top:2px;accent-color:var(--ok);flex:none}
+.todo .done{text-decoration:line-through;color:var(--muted)}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:99px;width:0;transition:width .5s}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(150px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:11px 16px;border-radius:12px;font-weight:800;z-index:60;max-width:calc(100% - 32px)}
+.chipline{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.75rem;font-weight:800;padding:4px 10px;border-radius:999px;background:#ECE6FF;color:#3B2499}
+</style>
+</head><body>
+
+<div class="lock" id="lock">
+  <form class="card" id="lockForm">
+    <div class="logo"><img src="icons/icon-192.png" alt=""></div>
+    <h1 id="lockTitle">Tu Fix Hoy Estudio</h1>
+    <p class="note" id="lockMsg">Ingresá tu PIN.</p>
+    <input type="password" id="pin" inputmode="numeric" autocomplete="off" placeholder="PIN" style="text-align:center;letter-spacing:.3em">
+    <button class="btn v full">Entrar</button>
+    <p class="note" id="lockErr" hidden style="color:var(--accent)">PIN incorrecto.</p>
+  </form>
+</div>
+
+<div id="app" hidden>
+<header><div class="wrap">
+  <div class="logo"><img src="icons/icon-192.png" alt=""></div>
+  <div><h1>Tu Fix Hoy Estudio</h1><p id="updated">Tu centro de control</p></div>
+  <button class="hbtn" id="refresh">↻ Actualizar</button>
+</div></header>
+
+<main class="wrap">
+<!-- RESUMEN -->
+<section id="sResumen">
+  <div class="card hero">
+    <div><div class="lab">Descargas (apps instaladas)</div><div class="big" id="kInst">–</div></div>
+    <div style="text-align:right"><div class="lab">De cada 100 usuarios</div><div style="font:800 1.5rem var(--display)" id="kRate">–</div><div class="lab">la instalan</div></div>
+  </div>
+  <div id="errBox" class="msg err" hidden style="margin-top:12px"></div>
+  <h2>Usuarios</h2>
+  <div class="tiles four">
+    <div class="card tile"><div class="lab">Usuarios totales</div><div class="n" id="kUsers">–</div></div>
+    <div class="card tile"><div class="lab">Activos hoy</div><div class="n" id="kToday">–</div></div>
+    <div class="card tile"><div class="lab">Nuevos hoy</div><div class="n" id="kNewToday">–</div></div>
+    <div class="card tile"><div class="lab">Veces que se abrió</div><div class="n" id="kOpens">–</div></div>
+  </div>
+  <h2>Últimos 7 días</h2>
+  <div class="card">
+    <div class="legend"><span style="--c:var(--accent)">Usuarios nuevos</span><span style="--c:var(--violet)">Activos</span></div>
+    <svg id="chart" viewBox="0 0 600 200" width="100%" role="img" aria-label="Usuarios nuevos y activos por día"></svg>
+  </div>
+  <h2>Qué hace la gente en la app</h2>
+  <div class="tiles four" id="engTiles"></div>
+  <h2>Meta de descargas</h2>
+  <div class="card">
+    <div class="row" style="justify-content:space-between"><span class="lab" id="goalTxt">–</span><span class="lab" id="goalPct"></span></div>
+    <div class="bar"><i id="goalBar"></i></div>
+    <div class="row" style="margin-top:12px"><input type="number" id="goalIn" min="1" placeholder="Nueva meta"><button class="btn ghost sm" id="goalSave">Guardar</button></div>
+  </div>
+</section>
+
+<!-- USUARIOS -->
+<section id="sUsuarios" hidden>
+  <h2>¿Quién la usa?</h2>
+  <div class="msg info">Los números son anónimos: se cuenta cada dispositivo una sola vez, sin nombres ni datos personales. Así lo dice tu política de privacidad.</div>
+  <h2>Por país</h2>
+  <div class="card"><ul class="bars" id="paises"><li class="skel">Cargando… (puede tardar unos segundos)</li></ul></div>
+  <h2>Por dispositivo</h2>
+  <div class="card"><ul class="bars" id="dispositivos"><li class="skel">Cargando… (puede tardar unos segundos)</li></ul></div>
+  <h2>Compromiso</h2>
+  <div class="tiles" id="compromiso"></div>
+  <p class="note" style="margin-top:10px">País y dispositivo se empezaron a contar con la versión 4.0: los usuarios anteriores no aparecen acá.</p>
+</section>
+
+<!-- VENTAS -->
+<section id="sVentas" hidden>
+  <h2>Temas y guías</h2>
+  <p class="note" style="margin-bottom:10px">Cada tema lleva a una guía. Si un tema tiene muchos planes pero pocos clics, conviene mejorar la oferta de esa guía.</p>
+  <div class="card" style="overflow-x:auto"><table><thead><tr><th>Tema</th><th class="r">Planes</th><th class="r">Clics a la guía</th><th class="r">% clic</th></tr></thead><tbody id="ventasT"><tr><td colspan="4" class="skel">Cargando… (puede tardar unos segundos)</td></tr></tbody></table></div>
+  <h2>Difusión</h2>
+  <div class="tiles" id="difusion"></div>
+</section>
+
+<!-- CONTENIDO -->
+<section id="sContenido" hidden>
+  <div id="contMsg" style="margin-top:16px"></div>
+  <h2>📣 Anuncio en la pantalla de inicio</h2>
+  <div class="card stack">
+    <div class="row" style="justify-content:space-between"><strong>Mostrar anuncio</strong><label class="sw"><input type="checkbox" id="anActivo"><span></span></label></div>
+    <div class="row"><label class="f" style="width:84px">Emoji<input type="text" id="anEmoji" maxlength="4"></label><label class="f" style="flex:1">Título<input type="text" id="anTitulo" maxlength="70" placeholder="Ej: Plata en Orden a mitad de precio"></label></div>
+    <label class="f">Texto<textarea id="anTexto" maxlength="180" placeholder="Ej: Solo este fin de semana."></textarea></label>
+    <div class="row"><label class="f" style="flex:1">Texto del botón<input type="text" id="anBoton" maxlength="30"></label></div>
+    <label class="f">Link del botón (https://…)<input type="url" id="anLink" placeholder="https://habitosfixhoy.online"></label>
+    <span class="lab">Así se ve en la app:</span>
+    <div id="anPrev"></div>
+  </div>
+  <h2>🛍️ Tienda y guías</h2>
+  <div class="card stack">
+    <label class="f">Link general de la tienda<input type="url" id="tienda"></label>
+    <label class="f">Tema destacado (lleva la etiqueta “El más elegido”)<select id="destacado"></select></label>
+    <span class="lab">Link de venta de cada guía (si lo dejás vacío, va a la tienda):</span>
+    <div class="stack" id="guias"></div>
+  </div>
+  <h2>💡 Consejos del día <span class="chip" id="nCons"></span></h2>
+  <div class="card stack"><div class="stack" id="consejos"></div><button class="btn ghost" id="addCons">+ Agregar consejo</button></div>
+  <h2>🧠 Retos del día <span class="chip" id="nRet"></span></h2>
+  <div class="card stack"><div class="stack" id="retos"></div><button class="btn ghost" id="addRet">+ Agregar reto</button></div>
+  <p class="note" style="margin:14px 0">Cada día la app muestra un consejo y un reto, en orden. Los cambios llegan a todos los usuarios cuando tocás <strong>Publicar</strong>.</p>
+</section>
+
+<!-- AJUSTES -->
+<section id="sAjustes" hidden>
+  <h2>🔑 Conexión para publicar</h2>
+  <div class="card stack">
+    <p class="note">El contenido de la app se guarda en tu GitHub (repositorio “videos”). Publicar es gratis y no gasta créditos de Netlify. Para eso el Estudio necesita un token de GitHub, que se guarda solo en este dispositivo.</p>
+    <ol class="note" style="margin:0;padding-left:18px">
+      <li>Entrá a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Fine-grained tokens → Generate new token</a> con la cuenta bienestarpleno11-dev.</li>
+      <li>Nombre: “Estudio”. Vencimiento: el que quieras (por ejemplo 1 año).</li>
+      <li>En <strong>Repository access</strong> elegí <strong>Only select repositories</strong> → <strong>videos</strong>.</li>
+      <li>En <strong>Permissions → Contents</strong> elegí <strong>Read and write</strong>.</li>
+      <li>Tocá <strong>Generate token</strong>, copialo y pegalo acá.</li>
+    </ol>
+    <label class="f">Token de GitHub<input type="password" id="token" autocomplete="off" placeholder="github_pat_…"></label>
+    <div class="row"><button class="btn v sm" id="tokSave">Guardar</button><button class="btn ghost sm" id="tokTest">Probar conexión</button><button class="btn ghost sm" id="tokDel">Borrar</button></div>
+    <div id="tokMsg"></div>
+  </div>
+  <h2>🙈 No contar mis visitas</h2>
+  <div class="card stack">
+    <p class="note">Abrí este link una vez en cada celular o compu donde usás Tu Fix Hoy. Desde ahí tus visitas no se suman a las estadísticas.</p>
+    <a class="btn ghost" href="https://tufixhoy.netlify.app/?nocontar=1" target="_blank" rel="noopener">Abrir Tu Fix Hoy sin contarme</a>
+  </div>
+  <h2>📝 Pendientes</h2>
+  <div class="card">
+    <form class="row" id="todoForm"><input type="text" id="todoIn" placeholder="Agregar pendiente…"><button class="btn sm">+</button></form>
+    <ul class="todo" id="todo"></ul>
+  </div>
+  <h2>⚙️ Estudio</h2>
+  <div class="card stack">
+    <a class="btn ghost" href="https://tufixhoy.netlify.app" target="_blank" rel="noopener">Abrir Tu Fix Hoy</a>
+    <button class="btn ghost" id="changePin">Cambiar PIN</button>
+    <button class="btn ghost" id="lockNow">Bloquear ahora</button>
+    <p class="note">Tu Fix Hoy Estudio · versión 1.0</p>
+  </div>
+</section>
+</main>
+
+<div class="pubbar" id="pubbar" hidden><div class="in"><span id="pubTxt">Tenés cambios sin publicar</span><button class="btn ghost sm" id="discard" style="color:#fff;border-color:rgba(255,255,255,.3)">Descartar</button><button class="btn sm" id="publish">Publicar</button></div></div>
+
+<nav class="tabbar"><div class="in">
+  <button class="tab" data-s="sResumen" aria-current="page"><span class="e">📊</span>Resumen</button>
+  <button class="tab" data-s="sUsuarios"><span class="e">🌎</span>Usuarios</button>
+  <button class="tab" data-s="sVentas"><span class="e">💰</span>Ventas</button>
+  <button class="tab" data-s="sContenido"><span class="e">✏️</span>Contenido</button>
+  <button class="tab" data-s="sAjustes"><span class="e">⚙️</span>Ajustes</button>
+</div></nav>
+<div class="toast" id="toast" hidden></div>
+</div>
+
+<script>
+const APP="https://tufixhoy.netlify.app", SITE="tufixhoy.netlify.app", NS="tufixhoy-hfh-2026";
+const ABACUS="https://abacus.jasoncameron.dev/get/"+NS+"/";
+const GH={owner:"bienestarpleno11-dev",repo:"videos",path:"tufixhoy/contenido.json"};
+const GHAPI="https://api.github.com/repos/"+GH.owner+"/"+GH.repo+"/contents/"+GH.path;
+const TEMAS={"gimnasio": {"name": "No dejar el gimnasio", "ebook": "Hábitos que Duran"}, "fumar": {"name": "Dejar de fumar", "ebook": "Hábitos que Duran"}, "presion": {"name": "Calma bajo presión", "ebook": "Modo Calma"}, "mundo": {"name": "Hacer un mundo más lindo", "ebook": null}, "dormir": {"name": "Dormir mejor", "ebook": "Dormí Profundo"}, "azucar": {"name": "Comer menos azúcar", "ebook": "Menos Azúcar Más Vida"}, "comer": {"name": "Comer sano sin gastar", "ebook": "Comer Sano Sin Gastar"}, "celular": {"name": "Usar menos el celular", "ebook": "Desconectate"}, "mananas": {"name": "Arrancar mejor el día", "ebook": "Mañanas que Cambian tu Día"}, "constancia": {"name": "Ser constante", "ebook": "Hábitos que Duran"}, "plata": {"name": "Ordenar mi plata", "ebook": "Plata en Orden"}, "deudas": {"name": "Salir de deudas", "ebook": "Respirá: salí de tus deudas"}, "estres": {"name": "Bajar el estrés", "ebook": "Modo Calma"}, "huerta": {"name": "Cultivar en casa", "ebook": "El Hábito de Sembrar en Casa"}, "ingresos": {"name": "Ganar plata extra", "ebook": "El Hábito de Ganar Extra"}};
+const PAISES={AR:["🇦🇷","Argentina"],MX:["🇲🇽","México"],CO:["🇨🇴","Colombia"],CL:["🇨🇱","Chile"],PE:["🇵🇪","Perú"],UY:["🇺🇾","Uruguay"],PY:["🇵🇾","Paraguay"],BO:["🇧🇴","Bolivia"],EC:["🇪🇨","Ecuador"],VE:["🇻🇪","Venezuela"],ES:["🇪🇸","España"],US:["🇺🇸","Estados Unidos"],CR:["🇨🇷","Costa Rica"],GT:["🇬🇹","Guatemala"],DO:["🇩🇴","Rep. Dominicana"],PA:["🇵🇦","Panamá"],SV:["🇸🇻","El Salvador"],HN:["🇭🇳","Honduras"],NI:["🇳🇮","Nicaragua"],PR:["🇵🇷","Puerto Rico"],CU:["🇨🇺","Cuba"],BR:["🇧🇷","Brasil"],otro:["🌐","Otros países"]};
+const DISP={android:["🤖","Android"],iphone:["🍏","iPhone"],pc:["💻","Computadora"],otro:["📱","Otro"]};
+const $=id=>document.getElementById(id);
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const fmt=n=>n==null?"–":Number(n).toLocaleString("es-AR");
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function toast(t){const e=$("toast");e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,2800)}
+
+/* ---------- PIN ---------- */
+async function hash(s){try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("tfxe:"+s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){return"p:"+s}}
+let settingPin=false;
+function lockScreen(){const has=!!LS.get("tfxe_pin",null);settingPin=!has;$("lockTitle").textContent=has?"Tu Fix Hoy Estudio":"Creá tu PIN";
+  $("lockMsg").textContent=has?"Ingresá tu PIN.":"Elegí un PIN de 4 a 8 números. Lo vas a usar para entrar al Estudio en este dispositivo.";
+  $("lock").hidden=false;$("app").hidden=true;$("pin").value="";$("lockErr").hidden=true;setTimeout(()=>$("pin").focus(),50)}
+$("lockForm").onsubmit=async e=>{e.preventDefault();const p=$("pin").value.trim();$("lockErr").hidden=true;
+  if(settingPin){if(!/^\d{4,8}$/.test(p)){$("lockErr").textContent="Usá de 4 a 8 números.";$("lockErr").hidden=false;return}LS.set("tfxe_pin",await hash(p));return openApp()}
+  if(await hash(p)===LS.get("tfxe_pin",""))openApp();else{$("lockErr").textContent="PIN incorrecto.";$("lockErr").hidden=false}};
+function openApp(){try{sessionStorage.setItem("tfxe_ok","1")}catch(e){}$("lock").hidden=true;$("app").hidden=false;init()}
+$("changePin").onclick=()=>{LS.set("tfxe_pin",null);try{sessionStorage.removeItem("tfxe_ok")}catch(e){}lockScreen()};
+$("lockNow").onclick=()=>{try{sessionStorage.removeItem("tfxe_ok")}catch(e){}lockScreen()};
+
+/* ---------- contadores (con límite de 25 pedidos cada 10 s) ---------- */
+const stamps=[];let failed=0;
+async function slot(){for(;;){const now=Date.now();while(stamps.length&&now-stamps[0]>10500)stamps.shift();if(stamps.length<28){stamps.push(now);return}await sleep(10600-(now-stamps[0]))}}
+const CACHE=LS.get("tfxe_cache",{});let cacheMin=5;
+function saveCache(){LS.set("tfxe_cache",CACHE)}
+async function get(key,tries=0){
+  const c=CACHE[key];if(c&&Date.now()-c.t<cacheMin*60000)return c.v;
+  const v=await getNet(key,tries);if(v!=null){CACHE[key]={v,t:Date.now()};clearTimeout(get.s);get.s=setTimeout(saveCache,500)}return v;
+}
+async function getNet(key,tries=0){
+  await slot();
+  try{const r=await fetch(ABACUS+key,{cache:"no-store"});
+    if(r.status===404)return 0;
+    if(r.status===429&&tries<2){await sleep(11000);return getNet(key,tries+1)}
+    if(!r.ok)throw 0;const j=await r.json();return j.value||0}catch(e){failed++;return null}
+}
+let prog=null;
+const getMany=(keys,el)=>{let n=0;return Promise.all(keys.map(k=>get(k).then(v=>{n++;if(el&&$(el)&&n<keys.length){const sk=$(el).querySelector('.skel');if(sk)sk.textContent='Cargando '+n+' de '+keys.length+'…'}return v})))};
+function dayStr(off){const d=new Date();d.setDate(d.getDate()-off);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+const pct=(a,b)=>(a==null||!b)?"–":Math.round(a/b*100)+"%";
+
+/* ---------- Resumen ---------- */
+const ENG=[["planes","🧭","Planes empezados"],["pasos","✅","Pasos cumplidos"],["completos","🏆","Planes completos"],["retos","🧠","Retos respondidos"],["consejos","💡","Consejos aplicados"],["busquedas","🔎","Búsquedas de ayuda"],["logros","🏅","Medallas ganadas"],["recordatorio-on","🔔","Activaron recordatorio"]];
+let TOT={};
+async function loadResumen(){
+  failed=0;$("errBox").hidden=true;$("updated").textContent="Cargando…";
+  const keys=["instalaciones","usuarios","aperturas",...ENG.map(e=>e[0])];
+  const vals=await getMany(keys);keys.forEach((k,i)=>TOT[k]=vals[i]);
+  $("kInst").textContent=fmt(TOT.instalaciones);$("kRate").textContent=TOT.usuarios?Math.round(TOT.instalaciones/TOT.usuarios*100):"–";
+  $("kUsers").textContent=fmt(TOT.usuarios);$("kOpens").textContent=fmt(TOT.aperturas);
+  $("engTiles").innerHTML=ENG.map(e=>`<div class="card tile"><div class="lab">${e[1]} ${e[2]}</div><div class="n">${fmt(TOT[e[0]])}</div></div>`).join("");
+  goal(TOT.instalaciones);
+  const days=[];for(let i=6;i>=0;i--)days.push(dayStr(i));
+  const [nu,ac]=await Promise.all([getMany(days.map(d=>"nuevos-"+d)),getMany(days.map(d=>"activos-"+d))]);
+  $("kToday").textContent=fmt(ac[6]);$("kNewToday").textContent=fmt(nu[6]);TOT.activosHoy=ac[6];
+  chart(days,nu,ac);
+  $("updated").textContent="Actualizado "+new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});
+  if(failed){$("errBox").hidden=false;$("errBox").textContent="No se pudieron traer "+failed+" datos. Revisá la conexión y tocá Actualizar en un ratito."}
+}
+function chart(days,a,b){
+  const W=600,H=200,L=30,B=26,top=12,n=days.length,gw=(W-L)/n,bw=Math.min(22,gw/3);
+  const max=Math.max(1,...a.concat(b).map(x=>x||0)),nice=Math.ceil(max/4)*4||4,y=v=>top+(H-B-top)*(1-(v||0)/nice);
+  let s="";for(let g=0;g<=4;g++){const v=nice*g/4,yy=y(v);s+=`<line x1="${L}" x2="${W}" y1="${yy}" y2="${yy}" stroke="var(--line)"/><text x="${L-6}" y="${yy+4}" text-anchor="end">${v}</text>`}
+  const dn=["dom","lun","mar","mié","jue","vie","sáb"];
+  days.forEach((d,i)=>{const cx=L+gw*i+gw/2,dt=new Date(d+"T12:00:00"),lab=i===n-1?"hoy":dn[dt.getDay()]+" "+dt.getDate();
+    [[a[i],"var(--accent)",-bw-1],[b[i],"var(--violet)",1]].forEach(p=>{s+=`<rect x="${cx+p[2]}" y="${y(p[0])}" width="${bw}" height="${Math.max(0,(H-B)-y(p[0]))}" rx="4" fill="${p[1]}"><title>${p[0]==null?"sin dato":p[0]}</title></rect>`});
+    s+=`<text x="${cx}" y="${H-8}" text-anchor="middle">${lab}</text>`});
+  $("chart").innerHTML=s;
+}
+function goal(inst){const g=LS.get("tfxe_goal",100),v=inst==null?(LS.get("tfxe_lastinst",0)):inst;if(inst!=null)LS.set("tfxe_lastinst",inst);
+  $("goalTxt").textContent=fmt(v)+" de "+fmt(g)+" descargas";const p=Math.min(100,Math.round(v/g*100));$("goalPct").textContent=p+"%";$("goalBar").style.width=p+"%"}
+$("goalSave").onclick=()=>{const v=parseInt($("goalIn").value,10);if(v>0){LS.set("tfxe_goal",v);$("goalIn").value="";goal(null)}};
+
+/* ---------- Usuarios ---------- */
+function barsHTML(rows,cls){const max=Math.max(1,...rows.map(r=>r.v||0)),tot=rows.reduce((a,r)=>a+(r.v||0),0);
+  return rows.map(r=>`<li><span>${r.em} ${esc(r.n)}</span><strong>${fmt(r.v)}${tot?` <span class="lab">· ${Math.round((r.v||0)/tot*100)}%</span>`:""}</strong><span class="b ${cls||""}"><i style="width:${(r.v||0)/max*100}%"></i></span></li>`).join("")}
+async function loadUsuarios(){
+  const pk=Object.keys(PAISES),dk=Object.keys(DISP);
+  const pv=await getMany(pk.map(k=>"pais-"+k),"paises");const dv=await getMany(dk.map(k=>"disp-"+k),"dispositivos");
+  const prow=pk.map((k,i)=>({em:PAISES[k][0],n:PAISES[k][1],v:pv[i]||0})).filter(r=>r.v>0).sort((a,b)=>b.v-a.v);
+  $("paises").innerHTML=prow.length?barsHTML(prow):'<li class="skel">Todavía no hay datos de países.</li>';
+  const drow=dk.map((k,i)=>({em:DISP[k][0],n:DISP[k][1],v:dv[i]||0})).filter(r=>r.v>0).sort((a,b)=>b.v-a.v);
+  $("dispositivos").innerHTML=drow.length?barsHTML(drow,"ok"):'<li class="skel">Todavía no hay datos de dispositivos.</li>';
+  if(TOT.usuarios==null)await loadResumen();
+  const C=[["Instalaron la app",pct(TOT.instalaciones,TOT.usuarios)],["Activos hoy",pct(TOT.activosHoy,TOT.usuarios)],["Empezaron un plan",pct(TOT.planes,TOT.usuarios)],["Terminaron un plan",pct(TOT.completos,TOT.planes)]];
+  $("compromiso").innerHTML=C.map(c=>`<div class="card tile"><div class="lab">${c[0]}</div><div class="n">${c[1]}</div></div>`).join("");
+}
+
+/* ---------- Ventas ---------- */
+async function loadVentas(){
+  const ks=Object.keys(TEMAS);
+  const tv=await getMany(ks.map(k=>"tema-"+k),"ventasT"),ev=await getMany(ks.map(k=>"ebook-"+k),"ventasT"),dv=await getMany(["anuncio-clic","compartir"]);
+  const rows=ks.map((k,i)=>({k,t:tv[i]||0,e:ev[i]||0})).sort((a,b)=>b.t-a.t||b.e-a.e);
+  $("ventasT").innerHTML=rows.map(r=>`<tr><td>${esc(TEMAS[r.k].name)}<div class="lab" style="font-size:.75rem">${esc(TEMAS[r.k].ebook||"Todas las guías")}</div></td><td class="r">${fmt(r.t)}</td><td class="r">${fmt(r.e)}</td><td class="r">${pct(r.e,r.t)}</td></tr>`).join("");
+  $("difusion").innerHTML=`<div class="card tile"><div class="lab">📣 Clics en el anuncio</div><div class="n">${fmt(dv[0])}</div></div><div class="card tile"><div class="lab">💬 Veces que la compartieron</div><div class="n">${fmt(dv[1])}</div></div>`;
+}
+
+/* ---------- Contenido ---------- */
+let BASE=null, D=null, FILESHA=null;
+const clone=o=>JSON.parse(JSON.stringify(o));
+const dirty=()=>BASE&&D&&JSON.stringify(BASE)!==JSON.stringify(D);
+function setMsg(id,cls,t){$(id).innerHTML=t?`<div class="msg ${cls}">${t}</div>`:""}
+async function loadContenido(force){
+  if(D&&!force){renderCont();return}
+  setMsg("contMsg","info","Cargando el contenido publicado…");
+  try{const j=await ghGet();BASE=j.data;FILESHA=j.sha;LS.set("tfxe_base",BASE)}
+  catch(e){BASE=LS.get("tfxe_base",null);if(!BASE){setMsg("contMsg","err","No pude leer el contenido de la app. Revisá la conexión y volvé a intentar.");return}}
+  const draft=LS.get("tfxe_draft",null);
+  D=draft&&draft._base===JSON.stringify(BASE)?draft.d:clone(BASE);
+  setMsg("contMsg","","");renderCont();updateBar();
+}
+function saveDraft(){LS.set("tfxe_draft",{_base:JSON.stringify(BASE),d:D});updateBar()}
+function updateBar(){$("pubbar").hidden=!dirty()}
+function bind(id,get,set){const e=$(id);set(e);e.oninput=e.onchange=()=>{get(e);saveDraft();if(id.startsWith("an"))prevAnuncio()}}
+function prevAnuncio(){const a=D.anuncio;$("anPrev").innerHTML=a.activo&&a.titulo?`<div class="preview"><span class="em">${esc(a.emoji||"📣")}</span><div><strong>${esc(a.titulo)}</strong>${a.texto?`<p>${esc(a.texto)}</p>`:""}${a.link?`<span class="btn">${esc(a.boton||"Ver más")}</span>`:""}</div></div>`:'<p class="note">El anuncio está apagado: no se muestra.</p>'}
+function renderCont(){
+  const a=D.anuncio=D.anuncio||{activo:false};
+  bind("anActivo",e=>a.activo=e.checked,e=>e.checked=!!a.activo);
+  bind("anEmoji",e=>a.emoji=e.value,e=>e.value=a.emoji||"");
+  bind("anTitulo",e=>a.titulo=e.value,e=>e.value=a.titulo||"");
+  bind("anTexto",e=>a.texto=e.value,e=>e.value=a.texto||"");
+  bind("anBoton",e=>a.boton=e.value,e=>e.value=a.boton||"");
+  bind("anLink",e=>a.link=e.value.trim(),e=>e.value=a.link||"");
+  prevAnuncio();
+  bind("tienda",e=>D.tienda=e.value.trim(),e=>e.value=D.tienda||"");
+  const sel=$("destacado");sel.innerHTML=Object.keys(TEMAS).map(k=>`<option value="${k}">${esc(TEMAS[k].name)}</option>`).join("");
+  bind("destacado",e=>D.destacado=e.value,e=>e.value=D.destacado||"plata");
+  D.guias=D.guias||{};
+  $("guias").innerHTML=Object.keys(D.guias).map((g,i)=>`<label class="f">${esc(g)}<input type="url" data-g="${i}" placeholder="https://… (vacío = tienda)"></label>`).join("");
+  const gk=Object.keys(D.guias);$("guias").querySelectorAll("input").forEach(inp=>{const g=gk[+inp.dataset.g];inp.value=D.guias[g]||"";inp.oninput=()=>{D.guias[g]=inp.value.trim();saveDraft()}});
+  renderCons();renderRet();
+}
+function move(arr,i,d){const j=i+d;if(j<0||j>=arr.length)return;[arr[i],arr[j]]=[arr[j],arr[i]]}
+function renderCons(){
+  const L=D.consejos=D.consejos||[];$("nCons").textContent=L.length;
+  $("consejos").innerHTML=L.map((c,i)=>`<div class="item"><div class="item-h"><span>Consejo ${i+1}</span><span><button class="icon-btn" data-up="${i}" aria-label="Subir">↑</button><button class="icon-btn" data-dn="${i}" aria-label="Bajar">↓</button><button class="icon-btn" data-del="${i}" aria-label="Borrar">🗑️</button></span></div><textarea data-i="${i}" maxlength="220"></textarea></div>`).join("");
+  $("consejos").querySelectorAll("textarea").forEach(t=>{t.value=L[+t.dataset.i];t.oninput=()=>{L[+t.dataset.i]=t.value;saveDraft()}});
+  $("consejos").querySelectorAll("[data-up]").forEach(b=>b.onclick=()=>{move(L,+b.dataset.up,-1);saveDraft();renderCons()});
+  $("consejos").querySelectorAll("[data-dn]").forEach(b=>b.onclick=()=>{move(L,+b.dataset.dn,1);saveDraft();renderCons()});
+  $("consejos").querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(L.length<=1)return toast("Tiene que quedar al menos 1 consejo");L.splice(+b.dataset.del,1);saveDraft();renderCons()});
+}
+$("addCons").onclick=()=>{D.consejos.push("");saveDraft();renderCons();const t=$("consejos").querySelectorAll("textarea");t[t.length-1].focus()};
+function renderRet(){
+  const L=D.retos=D.retos||[];$("nRet").textContent=L.length;
+  $("retos").innerHTML=L.map((r,i)=>`<div class="item"><div class="item-h"><span>Reto ${i+1}</span><span><button class="icon-btn" data-up="${i}">↑</button><button class="icon-btn" data-dn="${i}">↓</button><button class="icon-btn" data-del="${i}">🗑️</button></span></div>
+    <label class="f">Frase (verdadero o falso)<textarea data-q="${i}" maxlength="200"></textarea></label>
+    <label class="f">Respuesta correcta<select data-a="${i}"><option value="1">Verdadero</option><option value="0">Falso</option></select></label>
+    <label class="f">Explicación<textarea data-e="${i}" maxlength="240"></textarea></label></div>`).join("");
+  const R=$("retos");
+  R.querySelectorAll("[data-q]").forEach(t=>{t.value=L[+t.dataset.q].q||"";t.oninput=()=>{L[+t.dataset.q].q=t.value;saveDraft()}});
+  R.querySelectorAll("[data-a]").forEach(t=>{t.value=L[+t.dataset.a].a?"1":"0";t.onchange=()=>{L[+t.dataset.a].a=t.value==="1";saveDraft()}});
+  R.querySelectorAll("[data-e]").forEach(t=>{t.value=L[+t.dataset.e].e||"";t.oninput=()=>{L[+t.dataset.e].e=t.value;saveDraft()}});
+  R.querySelectorAll("[data-up]").forEach(b=>b.onclick=()=>{move(L,+b.dataset.up,-1);saveDraft();renderRet()});
+  R.querySelectorAll("[data-dn]").forEach(b=>b.onclick=()=>{move(L,+b.dataset.dn,1);saveDraft();renderRet()});
+  R.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(L.length<=1)return toast("Tiene que quedar al menos 1 reto");L.splice(+b.dataset.del,1);saveDraft();renderRet()});
+}
+$("addRet").onclick=()=>{D.retos.push({q:"",a:true,e:""});saveDraft();renderRet();const t=$("retos").querySelectorAll("[data-q]");t[t.length-1].focus()};
+$("discard").onclick=()=>{D=clone(BASE);LS.set("tfxe_draft",null);renderCont();updateBar();toast("Cambios descartados")};
+
+function validate(c){
+  const errs=[];const isUrl=u=>!u||/^https:\/\/\S+$/i.test(u);
+  if(c.anuncio.activo&&!String(c.anuncio.titulo||"").trim())errs.push("El anuncio está encendido pero no tiene título.");
+  if(!isUrl(c.anuncio.link))errs.push("El link del anuncio tiene que empezar con https://");
+  if(!isUrl(c.tienda))errs.push("El link de la tienda tiene que empezar con https://");
+  Object.entries(c.guias||{}).forEach(([g,u])=>{if(!isUrl(u))errs.push("El link de “"+g+"” tiene que empezar con https://")});
+  if(!c.consejos.some(x=>String(x).trim()))errs.push("Tiene que haber al menos un consejo.");
+  if(!c.retos.some(r=>String(r.q||"").trim()))errs.push("Tiene que haber al menos un reto.");
+  return errs;
+}
+
+/* ---------- Publicar en GitHub (gratis, sin gastar créditos de Netlify) ---------- */
+const token=()=>LS.get("tfxe_ghtoken","");
+const b64=str=>{const by=new TextEncoder().encode(str);let bin="";by.forEach(x=>bin+=String.fromCharCode(x));return btoa(bin)};
+const unb64=b=>new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g,"")),c=>c.charCodeAt(0)));
+async function gh(method,body){
+  const h={Accept:"application/vnd.github+json"};if(token())h.Authorization="Bearer "+token();if(body)h["Content-Type"]="application/json";
+  const r=await fetch(GHAPI+(method==="GET"?"?t="+Date.now():""),{method,headers:h,body:body?JSON.stringify(body):undefined,cache:"no-store"});
+  if(r.status===401)throw new Error("El token de GitHub no es válido o venció. Cargá uno nuevo en Ajustes.");
+  if(r.status===403||r.status===404&&method!=="GET")throw new Error("El token no tiene permiso para escribir en el repositorio “"+GH.repo+"”. Revisá que tenga Contents: Read and write.");
+  if(r.status===409)throw new Error("El contenido cambió mientras editabas. Tocá Actualizar y volvé a intentar.");
+  if(!r.ok)throw new Error("GitHub respondió "+r.status);
+  return r.json();
+}
+async function ghGet(){const j=await gh("GET");return{sha:j.sha,data:JSON.parse(unb64(j.content))}}
+async function publish(){
+  if(!token()){toast("Primero cargá tu token de GitHub en Ajustes");go("sAjustes");return}
+  const out=clone(D);out.consejos=out.consejos.map(x=>String(x).trim()).filter(Boolean);out.retos=out.retos.filter(r=>String(r.q||"").trim()).map(r=>({q:r.q.trim(),a:!!r.a,e:String(r.e||"").trim()}));
+  out.version=(BASE.version||0)+1;out.actualizado=new Date().toISOString().slice(0,10);
+  const errs=validate(out);if(errs.length){setMsg("contMsg","err",errs.map(esc).join("<br>"));go("sContenido");return}
+  const btn=$("publish");btn.disabled=true;$("pubTxt").textContent="Publicando…";
+  try{
+    if(!FILESHA){const cur=await ghGet();FILESHA=cur.sha}
+    const r=await gh("PUT",{message:"Estudio: contenido v"+out.version,content:b64(JSON.stringify(out,null,2)),sha:FILESHA});
+    FILESHA=r.content&&r.content.sha;
+    BASE=out;D=clone(out);LS.set("tfxe_base",BASE);LS.set("tfxe_draft",null);renderCont();updateBar();
+    setMsg("contMsg","ok","¡Publicado! En 1 o 2 minutos los usuarios ven los cambios cuando abren la app.");toast("¡Cambios publicados! 🚀");
+  }catch(e){setMsg("contMsg","err",esc(e.message||"No se pudo publicar. Probá de nuevo."));go("sContenido")}
+  finally{btn.disabled=false;$("pubTxt").textContent="Tenés cambios sin publicar"}
+}
+$("publish").onclick=publish;
+
+/* ---------- Ajustes ---------- */
+$("tokSave").onclick=()=>{const v=$("token").value.trim();if(!v)return;LS.set("tfxe_ghtoken",v);$("token").value="";setMsg("tokMsg","ok","Token guardado en este dispositivo.")};
+$("tokDel").onclick=()=>{LS.set("tfxe_ghtoken","");setMsg("tokMsg","info","Token borrado.")};
+$("tokTest").onclick=async()=>{if(!token())return setMsg("tokMsg","err","Todavía no guardaste un token.");setMsg("tokMsg","info","Probando…");
+  try{const r=await fetch("https://api.github.com/repos/"+GH.owner+"/"+GH.repo,{headers:{Authorization:"Bearer "+token(),Accept:"application/vnd.github+json"}});
+    if(r.status===401)throw new Error("El token no es válido.");if(!r.ok)throw new Error("El token no tiene acceso al repositorio “"+GH.repo+"”.");
+    const j=await r.json();if(j.permissions&&!j.permissions.push)throw new Error("El token puede leer pero no escribir. Poné Contents: Read and write.");
+    setMsg("tokMsg","ok","Conectado con "+esc(j.full_name)+" ✓")}catch(e){setMsg("tokMsg","err",esc(e.message))}};
+const DEF_TODO=[{t:"Abrir Tu Fix Hoy sin contarme en mi celular y mi compu",d:false},{t:"Crear el token de GitHub y cargarlo en Ajustes",d:false},{t:"Cargar los links de venta de cada guía",d:false},{t:"Generar el paquete de Android en PWABuilder",d:false},{t:"Conseguir 12 testers para Play Store",d:false}];
+function renderTodo(){const L=LS.get("tfxe_todo",DEF_TODO);
+  $("todo").innerHTML=L.map((x,i)=>`<li><input type="checkbox" data-i="${i}"${x.d?" checked":""}><span class="${x.d?"done":""}"></span><button class="icon-btn" data-del="${i}" style="margin-left:auto">×</button></li>`).join("");
+  $("todo").querySelectorAll("li span").forEach((s,i)=>s.textContent=L[i].t);
+  $("todo").querySelectorAll("input").forEach(c=>c.onchange=()=>{L[+c.dataset.i].d=c.checked;LS.set("tfxe_todo",L);renderTodo()});
+  $("todo").querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{L.splice(+b.dataset.del,1);LS.set("tfxe_todo",L);renderTodo()})}
+$("todoForm").onsubmit=e=>{e.preventDefault();const v=$("todoIn").value.trim();if(!v)return;const L=LS.get("tfxe_todo",DEF_TODO);L.unshift({t:v,d:false});LS.set("tfxe_todo",L);$("todoIn").value="";renderTodo()};
+
+/* ---------- navegación ---------- */
+const loaded={};
+function go(s){document.querySelectorAll("main>section").forEach(x=>x.hidden=x.id!==s);
+  document.querySelectorAll(".tab").forEach(b=>{if(b.dataset.s===s)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
+  scrollTo(0,0);
+  if(s==="sUsuarios"&&!loaded.u){loaded.u=1;loadUsuarios()}
+  if(s==="sVentas"&&!loaded.v){loaded.v=1;loadVentas()}
+  if(s==="sContenido")loadContenido();
+  if(s==="sAjustes")renderTodo();
+  location.hash=s.slice(1).toLowerCase();
+}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>go(b.dataset.s));
+$("refresh").onclick=()=>{for(const k in CACHE)delete CACHE[k];saveCache();loaded.u=loaded.v=0;TOT={};const cur=[...document.querySelectorAll("main>section")].find(x=>!x.hidden).id;loadResumen().then(()=>{if(cur==="sUsuarios"){loaded.u=1;loadUsuarios()}if(cur==="sVentas"){loaded.v=1;loadVentas()}});if(cur==="sContenido")loadContenido(true)};
+addEventListener("beforeunload",e=>{if(dirty()){e.preventDefault();e.returnValue=""}});
+
+let started=false;
+function init(){if(started)return;started=true;goal(null);loadResumen();
+  const h=location.hash.slice(1);const m={usuarios:"sUsuarios",ventas:"sVentas",contenido:"sContenido",ajustes:"sAjustes"};if(m[h])go(m[h]);
+  if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{})}
+let ok=false;try{ok=sessionStorage.getItem("tfxe_ok")==="1"&&!!LS.get("tfxe_pin",null)}catch(e){}
+if(ok)openApp();else lockScreen();
+</script>
+</body></html>
