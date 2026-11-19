@@ -1,0 +1,41 @@
+name: Importar sitio actual
+
+on:
+  push:
+    paths:
+      - "sitio/importar.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar sitio
+        run: |
+          mkdir -p sitio/actual/img
+          cd sitio/actual
+          curl -sSL -A "Mozilla/5.0" https://habitosfixhoy.online/ -o index.html
+          curl -sSL -A "Mozilla/5.0" https://habitosfixhoy.online/gracias -o gracias.html
+          grep -oE '(src|href|content)="(/|https://habitosfixhoy\.online/)[^"]+\.(png|jpe?g|webp|svg|gif|ico|css|js|webmanifest|pdf)"' index.html gracias.html \
+            | sed -E 's/.*="//; s/"$//; s#^https://habitosfixhoy\.online##' | sort -u > ../recursos.txt || true
+          for p in /img/respira-deudas.jpg /img/respira-banner.jpg /img/sembrar-en-casa.jpg; do echo "$p" >> ../recursos.txt; done
+          sort -u ../recursos.txt -o ../recursos.txt
+          while read -r p; do
+            [ -z "$p" ] && continue
+            mkdir -p ".$(dirname "$p")"
+            curl -sSL -f -A "Mozilla/5.0" "https://habitosfixhoy.online$p" -o ".$p" || echo "falta $p" >> ../faltantes.txt
+          done < ../recursos.txt
+          ls -laR
+      - name: Guardar
+        run: |
+          git config user.name "importar-bot"
+          git config user.email "importar-bot@users.noreply.github.com"
+          git add sitio
+          git diff --cached --quiet && exit 0
+          git commit -m "Sitio actual importado"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 5; done
+          exit 1
