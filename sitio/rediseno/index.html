@@ -277,10 +277,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding
   <section class="hero">
     <div class="wrap">
       <div>
-        <span class="pill">🇦🇷 Pensado para Argentina y Latinoamérica</span>
+        <span class="pill">Pensado para Argentina y Latinoamérica</span>
         <h1>Que tu sueldo te alcance. <em>Ordená tu plata en 21 días.</em></h1>
         <p class="lead"><strong>Plata en Orden</strong> es un plan simple, con un paso por día, para salir del rojo, dejar de pagar el mínimo de la tarjeta y empezar a ahorrar. Lo leés desde el celular y arrancás hoy.</p>
-        <div class="price-hero"><s>USD 18</s><strong>USD 9,9</strong><small>pago único · en tu moneda</small></div>
+        <div class="price-hero"><s>USD 18</s><strong>USD 9,90</strong><small>pago único · en tu moneda</small></div>
         <div class="ctas">
           <a class="btn btn-main" href="https://pay.hotmart.com/G108156813M?offDiscount=AGUINALDO" target="_blank" rel="noopener">Quiero Plata en Orden con 45% OFF
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -340,7 +340,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding
             <div><b>Días 15 a 21</b><span>Tu fondo de emergencia y el hábito de ahorrar</span></div>
           </div>
           <div class="buy">
-            <div><s>USD 18</s> <strong>USD 9,9</strong></div>
+            <div><s>USD 18</s> <strong>USD 9,90</strong></div>
             <a class="btn btn-sun" href="https://pay.hotmart.com/G108156813M?offDiscount=AGUINALDO" target="_blank" rel="noopener">Quiero empezar hoy</a>
           </div>
           <small>Con el cupón AGUINALDO ya aplicado. Hotmart te muestra el monto final en tu moneda. Garantía de 7 días.</small>
@@ -492,7 +492,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding
 </footer>
 
 <div class="mbar" id="mbar">
-  <div><b>Plata en Orden · 45% OFF</b><span>USD 9,9 · hasta el 20/12</span></div>
+  <div><b>Plata en Orden · 45% OFF</b><span>USD 9,90 · hasta el 20/12</span></div>
   <a class="btn btn-main" href="https://pay.hotmart.com/G108156813M?offDiscount=AGUINALDO" target="_blank" rel="noopener">Lo quiero</a>
 </div>
 
@@ -503,7 +503,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding
   var E = data.ebooks;
   var CAT = {finanzas:['finanzas','Plata'], habitos:['habitos','Hábitos'], energia:['mente','Descanso y energía'], sueno:['mente','Descanso y energía'], alimentacion:['comida','Comida'], huerta:['comida','Comida']};
   function el(t,c,x){var n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n;}
-  function fmt(p){return (Math.round(p*100)/100).toString().replace('.',',');}
+  function fmt(p){return (p%1? p.toFixed(2) : String(p)).replace('.',',');}
   var grid = document.getElementById('grid');
   E.forEach(function(e){
     var cat = CAT[e.category] || ['habitos','Hábitos'];
