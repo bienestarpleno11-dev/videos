@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HábitosFixHoy · Ordená tu plata y tus hábitos con planes simples</title>
+<meta name="description" content="Plata en Orden: plan de 21 días para que tu sueldo te alcance, salir de deudas y empezar a ahorrar. Más guías simples de hábitos, sueño y alimentación. Pago seguro con Hotmart.">
+<link rel="canonical" href="https://habitosfixhoy.online/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HábitosFixHoy">
+<meta property="og:title" content="Plata en Orden · Que tu sueldo te alcance en 21 días">
+<meta property="og:description" content="Un paso por día para salir del rojo, dejar de pagar el mínimo de la tarjeta y empezar a ahorrar. 45% OFF con el cupón AGUINALDO hasta el 20/12.">
+<meta property="og:url" content="https://habitosfixhoy.online/">
+<meta property="og:locale" content="es_LA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2f7a57">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f7a57'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf8f3; --surface:#fff; --ink:#1f2a24; --muted:#5b6a62; --line:#e8e2d7;
+  --green:#2f7a57; --green-dark:#1f5a40; --green-soft:#e3f1e9;
+  --sun:#f2b84b; --sun-soft:#fdf1d8; --night:#2b3a67; --night-soft:#e6e9f5; --coral:#e2725b; --teal:#2a8c8c;
+  --radius:18px; --shadow:0 12px 32px rgba(31,42,36,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;letter-spacing:-.01em}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:rgba(251,248,243,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.logo{font-family:Fraunces,serif;font-weight:800;font-size:1.3rem;text-decoration:none;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.logo b{color:var(--green);font-weight:800}
+.logo-mark{width:30px;height:30px;border-radius:9px;background:var(--green);display:grid;place-items:center;color:#fff;font-size:.9rem;font-family:Inter}
+.nav-links{display:flex;gap:26px;font-size:.94rem;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.countrybar{background:var(--green-soft);color:var(--green-dark);font-size:.88rem;text-align:center;padding:8px 16px;font-weight:500}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:600;border-radius:12px;padding:14px 22px;transition:transform .15s,background .15s,box-shadow .15s;border:0;cursor:pointer;font:600 1rem Inter,sans-serif;text-align:center}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 6px 18px rgba(47,122,87,.25)}
+.btn-primary:hover{background:var(--green-dark)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--green)}
+.btn-sm{padding:9px 16px;font-size:.9rem;border-radius:10px}
+.btn[aria-disabled="true"]{background:#cfd6d2;box-shadow:none;pointer-events:none;color:#56635c}
+
+/* Hero */
+.hero{padding:64px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.eyebrow{display:inline-block;background:var(--green-soft);color:var(--green-dark);font-weight:600;font-size:.82rem;padding:6px 12px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(2.1rem,5vw,3.5rem);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.lead{font-size:1.13rem;color:var(--muted);max-width:530px;margin-bottom:28px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;font-size:.9rem;color:var(--muted)}
+.trust span{display:flex;align-items:center;gap:7px}
+.trust span::before{content:"✓";color:var(--green);font-weight:700}
+.hero-art{position:relative;height:380px}
+.hero-art .cv{position:absolute;width:190px}
+.hero-art .cv:nth-child(1){left:0;top:60px;transform:rotate(-8deg)}
+.hero-art .cv:nth-child(2){left:50%;top:0;transform:translateX(-50%);z-index:2;width:205px}
+.hero-art .cv:nth-child(3){right:0;top:70px;transform:rotate(8deg)}
+
+/* Covers */
+.cv{aspect-ratio:3/4;border-radius:6px 14px 14px 6px;overflow:hidden;box-shadow:var(--shadow),inset 6px 0 0 rgba(0,0,0,.12);position:relative;background:#ddd}
+.cv img{width:100%;height:100%;object-fit:cover}
+.cv.cv-img{aspect-ratio:1/1}
+.book{width:100%;height:100%;padding:20px 16px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;position:relative;overflow:hidden}
+.book .tag{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.book .t{font-family:Fraunces,serif;font-weight:800;font-size:1.25rem;line-height:1.1;position:relative;z-index:1}
+.book .brand{font-size:.7rem;font-weight:600;opacity:.85}
+.book .deco{position:absolute;border-radius:50%;width:110px;height:110px;right:-28px;top:32px}
+.c-sueno{background:linear-gradient(160deg,#2b3a67,#1a2443)} .c-sueno .deco{width:85px;height:85px;box-shadow:-14px 6px 0 0 #f2d58b}
+.c-alimentacion{background:linear-gradient(160deg,#3f8f63,#255c3f)} .c-alimentacion .deco{background:rgba(255,255,255,.12);border:10px solid rgba(242,184,75,.8)}
+.c-habitos{background:linear-gradient(160deg,#e2725b,#b9503b)} .c-habitos .deco{border:3px dashed rgba(255,255,255,.55)}
+.c-energia{background:linear-gradient(160deg,#e9a23b,#c47a17)} .c-energia .deco{background:radial-gradient(circle,#fff6d6 0 30%,transparent 31%),rgba(255,255,255,.15)}
+.c-finanzas{background:linear-gradient(160deg,#1f5a43,#123a2b)} .c-huerta{background:linear-gradient(160deg,#4f9a3c,#1f5a43)} .c-finanzas .deco{background:radial-gradient(circle,#f2b84b 0 28%,transparent 29%),rgba(255,255,255,.12)}
+.c-estres{background:linear-gradient(160deg,#2a8c8c,#1b5f62)} .c-estres .deco{border:12px solid rgba(255,255,255,.18)}
+.c-pack{background:linear-gradient(160deg,#1f2a24,#34453b)} .c-pack .deco{background:conic-gradient(#2b3a67 0 33%,#2f7a57 0 66%,#e2725b 0)}
+
+/* Sections */
+section{padding:72px 0}
+.section-head{text-align:center;max-width:660px;margin:0 auto 44px}
+.section-head h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin-bottom:12px}
+.section-head p{color:var(--muted);font-size:1.05rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.35rem;margin-bottom:14px}
+.card h3{font-size:1.2rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.96rem}
+
+/* Products */
+#ebooks{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.product{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);display:flex;flex-direction:column;overflow:hidden;position:relative;transition:box-shadow .2s}
+.product:hover{box-shadow:var(--shadow)}
+.product .cover-wrap{padding:28px 0 20px;display:grid;place-items:center;background:linear-gradient(180deg,var(--green-soft),transparent)}
+.product .cv{width:160px}
+.product .body{padding:0 22px 22px;display:flex;flex-direction:column;flex:1}
+.chip{display:inline-block;font-size:.76rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);margin-bottom:10px;align-self:flex-start}
+.badge{position:absolute;top:14px;right:14px;background:var(--sun);color:var(--ink);font-weight:700;font-size:.78rem;padding:5px 11px;border-radius:999px;z-index:2}
+.product h3{font-size:1.28rem;margin-bottom:8px}
+.product .desc{color:var(--muted);font-size:.94rem;margin-bottom:14px}
+.product ul{list-style:none;margin-bottom:18px;display:grid;gap:7px}
+.product li{font-size:.92rem;padding-left:24px;position:relative}
+.product li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.price{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:auto 0 4px}
+.price .now{font-family:Fraunces,serif;font-weight:800;font-size:1.9rem}
+.price .old{color:var(--muted);text-decoration:line-through}
+.price-note{font-size:.8rem;color:var(--muted);margin-bottom:14px}
+.empty{text-align:center;color:var(--muted);padding:40px;border:1.5px dashed var(--line);border-radius:var(--radius)}
+
+/* Quiz */
+.quiz{max-width:760px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:34px;box-shadow:var(--shadow)}
+.quiz .q{font-family:Fraunces,serif;font-size:1.4rem;margin-bottom:6px}
+.quiz .qs{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.opt{border:1.5px solid var(--line);background:var(--bg);border-radius:14px;padding:14px 16px;text-align:left;cursor:pointer;font:500 .98rem Inter,sans-serif;color:var(--ink);display:flex;gap:10px;align-items:center;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--green);background:var(--green-soft)}
+.progress{height:6px;background:var(--line);border-radius:99px;margin-bottom:24px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--green);border-radius:99px;transition:width .3s}
+.result{display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:center}
+.result .cv{width:150px}
+.result h3{font-size:1.5rem;margin:4px 0 8px}
+.result p{color:var(--muted);margin-bottom:16px}
+.link-btn{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font:500 .9rem Inter,sans-serif;margin-top:12px}
+
+/* Steps / guarantee / faq */
+.steps{counter-reset:s}
+.steps .card::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--green-soft);color:var(--green-dark);font-weight:700;margin-bottom:14px}
+.guarantee{display:flex;gap:24px;align-items:center;max-width:820px;margin:40px auto 0;background:var(--sun-soft);border:1px solid #f3dfb2;border-radius:var(--radius);padding:26px 30px}
+.seal{flex:none;width:86px;height:86px;border-radius:50%;background:var(--sun);display:grid;place-items:center;text-align:center;font-weight:800;line-height:1.05;font-size:.82rem;color:var(--ink)}
+.seal b{font-family:Fraunces,serif;font-size:1.7rem;display:block}
+.guarantee h3{font-size:1.25rem;margin-bottom:4px}
+.guarantee p{color:#6b5a32;font-size:.95rem}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
+details.f{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+details.f summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.f summary::-webkit-details-marker{display:none}
+details.f summary::after{content:"+";font-size:1.3rem;color:var(--green);line-height:1}
+details.f[open] summary::after{content:"–"}
+details.f p{color:var(--muted);margin-top:10px;font-size:.96rem}
+
+.final{text-align:center;background:var(--green);color:#fff;border-radius:24px;padding:56px 24px}
+.final h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:12px}
+.final p{opacity:.92;margin-bottom:24px}
+.final .btn{background:#fff;color:var(--green-dark)}
+footer{padding:40px 0 90px;border-top:1px solid var(--line);margin-top:72px;font-size:.88rem;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.disclaimer{margin-top:16px;font-size:.8rem;max-width:780px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:30;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.wa svg{width:30px;height:30px;fill:#fff}
+
+@media (max-width:900px){
+  .hero{padding:40px 0}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero-art{height:290px;max-width:400px;margin:0 auto;width:100%}
+  .hero-art .cv{width:140px}.hero-art .cv:nth-child(2){width:155px}
+  .grid3{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .result{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .guarantee{flex-direction:column;text-align:center}
+  .quiz{padding:24px 18px}
+  section{padding:56px 0}
+}
+
+/* ============ Panel de edición ============ */
+#admin{position:fixed;top:0;right:0;bottom:0;width:430px;max-width:100%;background:#fff;border-left:1px solid var(--line);z-index:100;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.12);font-size:.92rem}
+#admin[hidden]{display:none}
+body.editing{padding-right:430px}
+body.editing .wa{right:448px}
+@media (max-width:900px){body.editing{padding-right:0} body.editing .wa{display:none}}
+.adm-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--ink);color:#fff}
+.adm-head strong{font-family:Fraunces,serif;font-size:1.1rem}
+.adm-head button{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:8px;padding:7px 12px;cursor:pointer;font:600 .82rem Inter}
+.adm-body{flex:1;overflow:auto;padding:16px 18px;display:grid;gap:12px;align-content:start;background:#f6f4ef}
+.adm-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.adm-box>summary{cursor:pointer;font-weight:700;display:flex;align-items:center;gap:10px;list-style:none}
+.adm-box>summary::-webkit-details-marker{display:none}
+.adm-box>summary .mini{width:30px;aspect-ratio:3/4;border-radius:3px;overflow:hidden;flex:none;background:#ddd}
+.adm-box>summary .mini img,.adm-box>summary .mini .book{width:100%;height:100%;object-fit:cover;padding:0}
+.adm-box>summary .mini .book *{display:none}
+.adm-box>summary span.tt{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fld{display:grid;gap:5px;margin-top:12px}
+.fld label{font-weight:600;font-size:.82rem;color:var(--muted)}
+.fld input,.fld textarea,.fld select{font:inherit;border:1px solid var(--line);border-radius:8px;padding:9px 11px;width:100%;background:#fff;color:var(--ink)}
+.fld textarea{resize:vertical;min-height:70px}
+.fld input:focus,.fld textarea:focus,.fld select:focus{outline:2px solid var(--green-soft);border-color:var(--green)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hint{font-size:.78rem;color:var(--muted)}
+.warn{color:#b9503b}
+.imgbox{display:flex;gap:12px;align-items:center}
+.imgbox .cv{width:70px;flex:none;box-shadow:none}
+.imgbox .book *{display:none}
+.imgbox .acts{display:grid;gap:6px;flex:1}
+.abtn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;cursor:pointer;font:600 .82rem Inter;color:var(--ink)}
+.abtn:hover{border-color:var(--green)}
+.abtn.danger{color:#b9503b}
+.abtn.main{background:var(--green);border-color:var(--green);color:#fff}
+.tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.adm-foot{padding:14px 18px;border-top:1px solid var(--line);display:grid;gap:8px;background:#fff}
+.adm-foot .btn{width:100%}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;z-index:200;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+/* Oferta y plan gratis */
+.offer-note{font-size:.85rem;color:var(--muted);margin-top:10px}
+.offer-note b{color:var(--ink)}
+.lead-box{background:var(--green-dark);color:#fff;border-radius:var(--radius);padding:34px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;box-shadow:var(--shadow)}
+.lead-box h2{color:#fff;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:10px}
+.lead-box p{color:rgba(255,255,255,.86)}
+.lead-box ul{margin:12px 0 0 18px;color:rgba(255,255,255,.9)}
+.lead-form{display:grid;gap:10px;background:#fff;border-radius:14px;padding:20px;color:var(--ink)}
+.lead-form label{font-weight:600;font-size:.88rem}
+.lead-form input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit}
+.lead-form input:focus{outline:2px solid var(--green-soft);border-color:var(--green)}
+.lead-form .btn{width:100%;justify-content:center}
+.lead-form small{color:var(--muted);font-size:.78rem}
+@media (max-width:800px){.lead-box{grid-template-columns:1fr;padding:26px 18px}}
+</style>
+
+<!-- =====================================================================
+     DATOS DEL SITIO
+     No hace falta editar esto a mano: abre tu sitio con /?editar al final
+     (por ejemplo https://habitosfixhoy.online/?editar), cambia todo desde
+     el panel y presiona "Descargar sitio actualizado".
+     ===================================================================== -->
+<script id="site-data" type="application/json">{"whatsapp":"","email":"contacto@habitosfixhoy.online","guaranteeDays":7,"metaPixelId":"","ga4Id":"","ebooks":[{"id":"e7","title":"Plata en Orden","category":"finanzas","desc":"Plan de 21 días para que tu sueldo te alcance, salir de deudas y empezar a ahorrar, sin complicarte.","bullets":["Plan de 21 días: una acción simple por día","Presupuesto, gastos hormiga, deudas, tarjeta y fondo de emergencia","12 planillas para imprimir · 45% OFF con el cupón AGUINALDO hasta el 20/12"],"price":9.9,"oldPrice":18,"hotmartUrl":"https://pay.hotmart.com/G108156813M?offDiscount=AGUINALDO","image":"https://hotmart.s3.amazonaws.com/product_pictures/d4d6576a-4386-4721-bd88-301708727a14/plataenordencuadrada.jpg"},{"id":"e9","title":"Respirá: salí de tus deudas","category":"finanzas","desc":"Plan de 90 días para salir de las deudas sin perder la calma: qué pagar primero, cómo negociar y cómo no volver a caer.","bullets":["Guiones para negociar con bancos y financieras","Método Respiro: qué deuda pagar primero","Kit de planillas imprimibles · 22 páginas"],"price":5,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/Q108186428A","image":"https://hotmart.s3.amazonaws.com/product_pictures/fcac44d0-cdf9-415c-a99f-e4c02605adb5/RespiraHotmartportada1200x1200.png"},{"id":"e10","title":"El Hábito de Ganar Extra","category":"finanzas","desc":"Plan de 30 días para generar ingresos extra desde casa con inteligencia artificial, sin experiencia y sin invertir.","bullets":["10 caminos de ingreso con IA y precios de referencia","Cómo conseguir clientes y cobrar en dólares","19 prompts y 10 plantillas listas · 45 páginas"],"price":15,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/F108268568X","image":"https://hotmart.s3.amazonaws.com/product_pictures/82cf1d0e-5dc3-43d8-bd2f-dfc5fe9f1fd5/hotmartproducto600.png"},{"id":"e6","title":"Hábitos que Duran","category":"habitos","desc":"Plan de 21 días para dejar de abandonar lo que empezás, sin depender de la motivación ni de la fuerza de voluntad.","bullets":["Plan de 21 días: una acción simple por día","Autodiagnóstico de hábitos y cómo vencer la postergación","Tracker y planillas para imprimir · 28 páginas"],"price":19,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/R108133080X","image":"https://hotmart.s3.amazonaws.com/product_pictures/6cb2eda3-aa33-48de-bce2-8f96bc22caf4/habitosqueduran.jpg"},{"id":"e5","title":"Mañanas que Cambian tu Día","category":"energia","desc":"Plan de 21 días para arrancar con calma, energía y foco, con una rutina de mañana realista.","bullets":["Plan de 21 días: una acción simple por día","Cómo despertar sin pelear con la alarma","Planillas para imprimir · 24 páginas"],"price":17,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/U108110772N","image":"https://hotmart.s3.amazonaws.com/product_pictures/22c65b38-6197-4144-9094-0de39d78c039/mananasquecambiantudia.jpg"},{"id":"e4","title":"Desconectate","category":"habitos","desc":"Plan de 21 días para usar menos el celular y recuperar tu foco, sin dejar de usarlo.","bullets":["Plan de 21 días: una acción simple por día","Autodiagnóstico y configuración del celular paso a paso","Checklists para imprimir · 23 páginas"],"price":17,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/P108110767R","image":"https://hotmart.s3.amazonaws.com/product_pictures/7aafec94-e78e-47a8-8ea3-99b1a3b2175c/desconectate.jpg"},{"id":"e3","title":"Menos Azúcar, Más Vida","category":"alimentacion","desc":"Plan de 21 días para reducir el azúcar agregado de a poco, sin prohibiciones extremas y con menos antojos.","bullets":["Plan de 21 días: una acción simple por día","Autodiagnóstico, recetas y planillas para imprimir","Ebook de 28 páginas · Acceso inmediato"],"price":17,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/P108108221Y","image":"https://hotmart.s3.amazonaws.com/product_pictures/80e48862-3634-4c36-8e21-9463e4c0d1e6/menosazucarmasvida.jpg"},{"id":"e2","title":"Comer Sano Sin Gastar","category":"alimentacion","desc":"Ideas prácticas para comer más sano cuidando tu bolsillo, sin dietas complicadas.","bullets":["Ebook digital para leer en el celular o la computadora","Acceso inmediato por email","Garantía de 7 días"],"price":8,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/J108103337P","image":"https://hotmart.s3.amazonaws.com/product_pictures/15fdb5f2-dd9d-4842-a9a6-68d4f885351c/comersanosingastar1200x1200.png"},{"id":"e1","title":"Dormí Profundo","category":"sueno","desc":"Una guía práctica con hábitos y rutinas simples para preparar tu noche y descansar mejor.","bullets":["Ebook digital para leer en el celular o la computadora","Acceso inmediato por email","Garantía de 7 días"],"price":7,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/T108084849J","image":"https://hotmart.s3.amazonaws.com/product_pictures/a44ec7df-a3b9-47b1-8cb0-b47f2600dedd/dormiprofundohotmart600x600.png"},{"id":"e8","title":"El Hábito de Sembrar en Casa","category":"huerta","desc":"Plan de 21 días para cultivar tu propia comida en macetas, aunque vivas en un departamento.","bullets":["Plan de 21 días: una tarea simple por día","15 cultivos fáciles y calendario para Latinoamérica","Remedios naturales y bitácora imprimible"],"price":12,"oldPrice":0,"hotmartUrl":"https://pay.hotmart.com/Q108178539Y","image":"https://hotmart.s3.amazonaws.com/product_pictures/a21653d1-7174-4b9e-8a8e-441484856b2e/image.png"}]}</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo" aria-label="HábitosFixHoy inicio"><span class="logo-mark">✓</span><span>Hábitos<b>Fix</b>Hoy</span></a>
+    <nav class="nav-links">
+      <a href="#ebooks">Ebooks</a>
+      <a href="#plan-gratis">Plan gratis</a>
+      <a href="#test">¿Por cuál empiezo?</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+    <a href="#ebooks" class="btn btn-primary btn-sm">Ver ebooks</a>
+  </div>
+  <div class="countrybar" id="countrybar">Disponible para toda Latinoamérica y España · Pago seguro en tu moneda local</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">🎁 Semana del aguinaldo · 45% OFF hasta el 20/12</span>
+        <h1>Que tu sueldo te alcance. <em>Ordená tu plata en 21 días.</em></h1>
+        <p class="lead"><b>Plata en Orden</b> es un plan simple, con un paso por día, para salir del rojo, dejar de pagar el mínimo de la tarjeta y empezar a ahorrar. Con planillas para imprimir. Lo leés desde el celular y arrancás hoy.</p>
+        <div class="hero-ctas">
+          <a href="https://pay.hotmart.com/G108156813M?offDiscount=AGUINALDO" class="btn btn-primary buy" data-name="Plata en Orden" data-price="9.9">Quiero Plata en Orden con 45% OFF</a>
+          <a href="#plan-gratis" class="btn btn-ghost">Recibir el plan gratis de 7 días</a>
+        </div>
+        <p class="offer-note">El cupón <b>AGUINALDO</b> ya viene cargado: en la página de pago tocá <b>«Aplicar»</b> y listo.</p>
+        <div class="trust">
+          <span>Acceso inmediato</span>
+          <span>Pago seguro con Hotmart</span>
+          <span id="trust-guarantee">Garantía de 7 días</span>
+        </div>
+      </div>
+      <div class="hero-art" id="hero-art" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section id="plan-gratis">
+    <div class="wrap">
+      <div class="lead-box">
+        <div>
+          <h2>Plan gratis: 7 días para ordenar tu plata</h2>
+          <p>Un paso corto por día para saber en qué se te va la plata y frenar la sangría antes de fin de mes. Te lo mostramos apenas dejás tu email.</p>
+          <ul>
+            <li>Día a día, sin planillas complicadas</li>
+            <li>Gastos hormiga, tarjeta y cuotas</li>
+            <li>Tu primer fondo de emergencia</li>
+          </ul>
+        </div>
+        <form action="https://formsubmit.co/bienestarpleno11@gmail.com" class='lead-form' method='POST' name='plan-gratis'>
+          <input type="hidden" name="_subject" value="Nuevo suscriptor: plan gratis de 7 días">
+          <input type="hidden" name="_next" value="https://habitosfixhoy.online/gracias.html">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="origen" value="sitio-plan-gratis">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <label for="lf-nombre">Tu nombre</label>
+          <input id="lf-nombre" name="nombre" autocomplete="given-name" placeholder="Ej: Laura">
+          <label for="lf-email">Tu email</label>
+          <input id="lf-email" name="email" type="email" required autocomplete="email" placeholder="tu@email.com">
+          <button type="submit" class="btn btn-primary">Quiero el plan gratis</button>
+          <small>Sin spam. Te escribimos solo con consejos y ofertas de HábitosFixHoy, y podés darte de baja cuando quieras.</small>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="ebooks">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Elegí tu guía</h2>
+        <p>Si no sabés por dónde empezar, empezá por la plata: cuando tus cuentas están en orden, todo lo demás se hace más fácil.</p>
+      </div>
+      <div class="products" id="products"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Bienestar sin complicarse</h2>
+        <p>Pensado para personas ocupadas que quieren mejorar su día a día con pasos simples, no con planes imposibles.</p>
+      </div>
+      <div class="grid3">
+        <div class="card"><div class="ic" style="background:var(--night-soft)">🌙</div><h3>Mejor descanso</h3><p>Rutinas nocturnas sencillas y hábitos de horario que ayudan a crear un buen ambiente para dormir.</p></div>
+        <div class="card"><div class="ic" style="background:var(--green-soft)">🥗</div><h3>Comida con equilibrio</h3><p>Ideas prácticas para organizar compras y comidas sin dietas extremas ni contar calorías.</p></div>
+        <div class="card"><div class="ic" style="background:var(--sun-soft)">🔁</div><h3>Constancia real</h3><p>Un método para empezar pequeño y sostener los cambios, incluso en las semanas difíciles.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="test">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>¿No sabes por cuál empezar?</h2>
+        <p>Responde dos preguntas y te recomendamos la guía que mejor encaja contigo.</p>
+      </div>
+      <div class="quiz" id="quiz"></div>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Así de simple</h2>
+        <p>Compras en minutos, desde cualquier país y dispositivo.</p>
+      </div>
+      <div class="grid3 steps">
+        <div class="card"><h3>Eliges tu ebook</h3><p>Toca "Comprar ahora" en la guía o el pack que quieras.</p></div>
+        <div class="card"><h3>Pagas en tu moneda</h3><p>El pago se procesa en Hotmart, que adapta el precio y los medios de pago a tu país.</p></div>
+        <div class="card"><h3>Accedes al instante</h3><p>Recibes el acceso en tu email apenas se confirma el pago. Lo lees en el celular, tablet o computadora.</p></div>
+      </div>
+      <div class="guarantee">
+        <div class="seal"><span><b id="seal-days">7</b>días de<br>garantía</span></div>
+        <div>
+          <h3>Compra sin riesgo</h3>
+          <p id="guarantee-text">Si sientes que la guía no es para ti, puedes pedir el reembolso dentro de los 7 días directamente desde Hotmart.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head"><h2>Preguntas frecuentes</h2></div>
+      <div class="faq">
+        <details class="f"><summary>¿En qué formato vienen los ebooks?</summary><p>Son ebooks digitales en PDF para leer en el celular, la tablet o la computadora. También puedes imprimirlos.</p></details>
+        <details class="f"><summary>¿Cómo recibo el ebook después de pagar?</summary><p>Hotmart te envía el acceso al email que usaste en la compra apenas se confirma el pago. Revisa también la carpeta de spam o promociones.</p></details>
+        <details class="f"><summary>¿Puedo comprar desde mi país?</summary><p>Sí. Puedes comprar desde cualquier país de Latinoamérica y desde España. El checkout de Hotmart te muestra el precio en tu moneda local y los medios de pago disponibles en tu país.</p></details>
+        <details class="f"><summary>¿Qué medios de pago aceptan?</summary><p>Depende de tu país: tarjetas de crédito y débito, y medios locales como OXXO y SPEI en México, PSE en Colombia o Bizum en España, entre otros.</p></details>
+        <details class="f"><summary>¿Y si no me gusta?</summary><p id="faq-guarantee">Tienes 7 días de garantía. Pides el reembolso directamente en Hotmart, sin vueltas.</p></details>
+        <details class="f"><summary>¿Los ebooks reemplazan a un profesional de la salud?</summary><p>No. Son guías informativas sobre hábitos cotidianos. Si tienes un problema de salud, de sueño o de alimentación que persiste, consulta con un profesional.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="final">
+      <h2>Este mes, que el aguinaldo no se evapore</h2>
+      <p>Plata en Orden con 45% OFF usando el cupón AGUINALDO, hasta el 20/12.</p>
+      <a href="https://pay.hotmart.com/G108156813M?offDiscount=AGUINALDO" class="btn buy" data-name="Plata en Orden" data-price="9.9">Quiero mi plata en orden</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><strong style="color:var(--ink)">HábitosFixHoy</strong> · habitosfixhoy.online</div>
+      <div id="contact"></div>
+    </div>
+    <p class="disclaimer">El contenido de estos ebooks es informativo y educativo. No reemplaza la consulta, el diagnóstico ni el tratamiento de un profesional de la salud. Los resultados dependen de cada persona.</p>
+    <p class="disclaimer">© <span id="year"></span> HábitosFixHoy. Pagos procesados de forma segura por Hotmart.</p>
+  </div>
+</footer>
+
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" hidden>
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+</a>
+
+<!-- Panel de edición (solo visible con ?editar) -->
+<aside id="admin" hidden aria-label="Panel de edición">
+  <div class="adm-head">
+    <strong>Editar sitio</strong>
+    <div style="display:flex;gap:6px">
+      <button type="button" id="adm-reset" title="Volver a la versión publicada">Descartar cambios</button>
+      <button type="button" id="adm-close">Cerrar</button>
+    </div>
+  </div>
+  <div class="adm-body">
+    <details class="adm-box" id="adm-settings">
+      <summary>⚙️ <span class="tt">Ajustes generales</span></summary>
+      <div class="fld"><label>WhatsApp (con código de país, solo números)</label><input data-s="whatsapp" placeholder="5493511234567"><span class="hint">Si lo dejas vacío, el botón de WhatsApp no aparece.</span></div>
+      <div class="fld"><label>Email de contacto</label><input data-s="email" type="email"></div>
+      <div class="fld"><label>Días de garantía (igual a lo configurado en Hotmart)</label><input data-s="guaranteeDays" type="number" min="0"></div>
+      <div class="row2">
+        <div class="fld"><label>Meta Pixel ID</label><input data-s="metaPixelId" placeholder="Opcional"></div>
+        <div class="fld"><label>Google Analytics 4</label><input data-s="ga4Id" placeholder="G-XXXXXXX"></div>
+      </div>
+      <span class="hint">El Pixel y Analytics sirven para medir ventas y hacer publicidad. Puedes completarlos más adelante.</span>
+    </details>
+    <div id="adm-list" style="display:grid;gap:12px"></div>
+    <button type="button" class="abtn" id="adm-add" style="padding:12px">+ Agregar ebook</button>
+  </div>
+  <div class="adm-foot">
+    <button type="button" class="btn btn-primary" id="adm-export">⬇ Descargar sitio actualizado</button>
+    <span class="hint">Tus cambios se guardan como borrador en este navegador. Para publicarlos, descarga el archivo y súbelo a Netlify (Deploys → arrastra el archivo).</span>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+/* Copia limpia de la página, usada para exportar el sitio actualizado */
+const TEMPLATE = "<!doctype html>\n" + document.documentElement.outerHTML;
+
+const PUBLISHED = JSON.parse(document.getElementById("site-data").textContent);
+const EDIT = /[?&#](editar|admin)\b/.test(location.search + location.hash);
+const DRAFT_KEY = "hfh-draft-v1";
+
+let data = structuredClone(PUBLISHED);
+if (EDIT) {
+  try { const d = localStorage.getItem(DRAFT_KEY); if (d) data = JSON.parse(d); } catch (e) {}
+}
+
+const CATS = {
+  sueno:        { label: "Sueño",          emoji: "🌙", quiz: "Dormir y descansar mejor" },
+  alimentacion: { label: "Alimentación",   emoji: "🥗", quiz: "Comer más sano" },
+  habitos:      { label: "Hábitos",        emoji: "🔁", quiz: "Ser constante con mis hábitos" },
+  energia:      { label: "Energía",        emoji: "⚡", quiz: "Tener más energía en el día" },
+  finanzas:     { label: "Finanzas",       emoji: "💰", quiz: "Ordenar mi plata y ahorrar" },
+  huerta:       { label: "Huerta",         emoji: "🌱", quiz: "Cultivar mi propia comida" },
+  estres:       { label: "Calma y estrés", emoji: "🍃", quiz: "Sentirme con más calma" },
+  pack:         { label: "Pack",           emoji: "🎁" }
+};
+
+/* ---------- Utilidades ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const safeUrl = u => /^https?:\/\//i.test(u || "") ? u : "";
+const safeImg = u => /^(https?:\/\/|data:image\/)/i.test(u || "") ? u : "";
+const money = n => "US$ " + Number(n || 0).toLocaleString("es", { maximumFractionDigits: 2 });
+const uid = () => "e" + Math.random().toString(36).slice(2, 8);
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 2200); }
+
+function cover(e) {
+  const img = safeImg(e.image);
+  if (img) return `<div class="cv cv-img"><img src="${esc(img)}" alt="Portada de ${esc(e.title)}" loading="lazy"></div>`;
+  const c = CATS[e.category] ? e.category : "habitos";
+  return `<div class="cv"><div class="book c-${c}"><div class="deco"></div><span class="tag">${esc(CATS[c].label)}</span><span class="t">${esc(e.title)}</span><span class="brand">HábitosFixHoy</span></div></div>`;
+}
+
+function buyButton(e, label = "Comprar ahora") {
+  const url = safeUrl(e.hotmartUrl);
+  return url
+    ? `<a class="btn btn-primary buy" href="${esc(url)}" data-name="${esc(e.title)}" data-price="${Number(e.price) || 0}">${label}</a>`
+    : `<a class="btn" aria-disabled="true">Próximamente</a>`;
+}
+
+function productCard(e) {
+  const cat = CATS[e.category] || CATS.habitos;
+  const save = e.oldPrice > e.price ? Math.round((1 - e.price / e.oldPrice) * 100) : 0;
+  return `<article class="product">
+    ${save ? `<span class="badge">Ahorra ${save}%</span>` : ""}
+    <div class="cover-wrap">${cover(e)}</div>
+    <div class="body">
+      <span class="chip">${cat.emoji} ${esc(cat.label)}</span>
+      <h3>${esc(e.title)}</h3>
+      <p class="desc">${esc(e.desc)}</p>
+      <ul>${(e.bullets || []).filter(Boolean).map(b => `<li>${esc(b)}</li>`).join("")}</ul>
+      <div class="price"><span class="now">${money(e.price)}</span>${e.oldPrice > e.price ? `<span class="old">${money(e.oldPrice)}</span>` : ""}</div>
+      <p class="price-note">Precio de referencia. Al pagar lo ves en tu moneda local.</p>
+      ${buyButton(e)}
+    </div>
+  </article>`;
+}
+
+/* ---------- País del visitante (por zona horaria, sin pedir permisos) ---------- */
+const COUNTRIES = {
+  MX: ["🇲🇽", "México", "Pagas en pesos mexicanos con tarjeta, OXXO o SPEI"],
+  CO: ["🇨🇴", "Colombia", "Pagas en pesos colombianos con tarjeta o PSE"],
+  ES: ["🇪🇸", "España", "Pagas en euros con tarjeta o Bizum"],
+  AR: ["🇦🇷", "Argentina", "Pagás en pesos con tarjeta de crédito o débito"], CL: ["🇨🇱", "Chile"], PE: ["🇵🇪", "Perú"], UY: ["🇺🇾", "Uruguay"],
+  EC: ["🇪🇨", "Ecuador"], BO: ["🇧🇴", "Bolivia"], PY: ["🇵🇾", "Paraguay"], VE: ["🇻🇪", "Venezuela"],
+  GT: ["🇬🇹", "Guatemala"], CR: ["🇨🇷", "Costa Rica"], PA: ["🇵🇦", "Panamá"], DO: ["🇩🇴", "República Dominicana"],
+  SV: ["🇸🇻", "El Salvador"], HN: ["🇭🇳", "Honduras"], NI: ["🇳🇮", "Nicaragua"], PR: ["🇵🇷", "Puerto Rico"]
+};
+const TZ = {
+  "America/Bogota": "CO", "America/Lima": "PE", "America/Santiago": "CL", "America/Montevideo": "UY",
+  "America/Guayaquil": "EC", "America/La_Paz": "BO", "America/Asuncion": "PY", "America/Caracas": "VE",
+  "America/Guatemala": "GT", "America/Costa_Rica": "CR", "America/Panama": "PA", "America/Santo_Domingo": "DO",
+  "America/El_Salvador": "SV", "America/Tegucigalpa": "HN", "America/Managua": "NI", "America/Puerto_Rico": "PR",
+  "Europe/Madrid": "ES", "Atlantic/Canary": "ES", "America/Buenos_Aires": "AR", "America/Cordoba": "AR"
+};
+function detectCountry() {
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    if (tz.startsWith("America/Argentina/")) return "AR";
+    if (/^America\/(Mexico_City|Monterrey|Cancun|Merida|Tijuana|Chihuahua|Hermosillo|Mazatlan|Matamoros|Bahia_Banderas|Ciudad_Juarez|Ojinaga)$/.test(tz)) return "MX";
+    return TZ[tz] || null;
+  } catch (e) { return null; }
+}
+function renderCountry() {
+  const c = COUNTRIES[detectCountry()];
+  if (!c) return;
+  $("#countrybar").textContent = `${c[0]} Compras desde ${c[1]}: ${c[2] || "pagas en tu moneda local con los medios de pago de tu país"} · Acceso inmediato`;
+}
+
+/* ---------- Recomendador ---------- */
+const quiz = { step: 0, area: null, time: null };
+const TIMES = [["5 a 10 minutos", "corto"], ["15 a 30 minutos", "medio"], ["Más de 30 minutos", "largo"]];
+function renderQuiz() {
+  const el = $("#quiz");
+  const usedCats = [...new Set(data.ebooks.map(e => e.category).filter(c => c !== "pack" && CATS[c]))];
+  if (!usedCats.length) { el.innerHTML = `<p class="empty">Pronto vas a encontrar aquí tu recomendación.</p>`; return; }
+
+  if (quiz.step === 0) {
+    el.innerHTML = `<div class="progress"><i style="width:33%"></i></div>
+      <p class="q">¿Qué te gustaría mejorar primero?</p><p class="qs">Elige una opción.</p>
+      <div class="opts">${usedCats.map(c => `<button class="opt" data-area="${c}"><span>${CATS[c].emoji}</span>${esc(CATS[c].quiz)}</button>`).join("")}</div>`;
+  } else if (quiz.step === 1) {
+    el.innerHTML = `<div class="progress"><i style="width:66%"></i></div>
+      <p class="q">¿Cuánto tiempo al día puedes dedicarle?</p><p class="qs">Sé realista: lo pequeño y constante funciona mejor.</p>
+      <div class="opts">${TIMES.map(t => `<button class="opt" data-time="${t[1]}">⏱️ ${t[0]}</button>`).join("")}</div>`;
+  } else {
+    const match = data.ebooks.find(e => e.category === quiz.area) || data.ebooks[0];
+    const pack = data.ebooks.find(e => e.category === "pack" && e !== match);
+    const tip = { corto: "Empieza aplicando una sola idea por día: con pocos minutos ya puedes avanzar.",
+                  medio: "Con ese tiempo puedes seguir el plan completo a buen ritmo.",
+                  largo: "Tienes tiempo para aplicar todo el plan y sumar más áreas de a una." }[quiz.time];
+    el.innerHTML = `<div class="progress"><i style="width:100%"></i></div>
+      <div class="result">${cover(match)}
+        <div><span class="chip">Tu recomendación</span><h3>${esc(match.title)}</h3>
+        <p>${esc(match.desc)} ${tip}</p>
+        ${buyButton(match, "Quiero esta guía · " + money(match.price))}
+        ${pack ? `<p class="hint" style="margin-top:12px">¿Quieres trabajar todo a la vez? El <a href="#ebooks">${esc(pack.title)}</a> sale ${money(pack.price)}.</p>` : ""}
+        <br><button class="link-btn" id="quiz-restart">Volver a empezar</button></div>
+      </div>`;
+  }
+}
+$("#quiz").addEventListener("click", ev => {
+  const b = ev.target.closest("button"); if (!b) return;
+  if (b.dataset.area) { quiz.area = b.dataset.area; quiz.step = 1; }
+  else if (b.dataset.time) { quiz.time = b.dataset.time; quiz.step = 2; track("Lead", { content_category: quiz.area }); }
+  else if (b.id === "quiz-restart") { quiz.step = 0; }
+  renderQuiz();
+});
+
+/* ---------- Render del sitio ---------- */
+function renderSite() {
+  const list = data.ebooks || [];
+  $("#products").innerHTML = list.length ? list.map(productCard).join("") : `<p class="empty">Todavía no hay ebooks cargados.</p>`;
+  $("#hero-art").innerHTML = list.slice(0, 3).map(cover).join("");
+
+  const days = Number(data.guaranteeDays) || 0;
+  const g = document.querySelector(".guarantee");
+  g.hidden = !days;
+  $("#trust-guarantee").hidden = !days;
+  $("#trust-guarantee").textContent = `Garantía de ${days} días`;
+  $("#seal-days").textContent = days;
+  $("#guarantee-text").textContent = `Si sientes que la guía no es para ti, puedes pedir el reembolso dentro de los ${days} días directamente desde Hotmart.`;
+  $("#faq-guarantee").textContent = days ? `Tienes ${days} días de garantía. Pides el reembolso directamente en Hotmart, sin vueltas.` : "Escríbenos y te ayudamos.";
+
+  const wa = (data.whatsapp || "").replace(/\D/g, "");
+  const waUrl = wa ? "https://wa.me/" + wa + "?text=" + encodeURIComponent("Hola! Tengo una consulta sobre los ebooks de HábitosFixHoy") : "";
+  $("#wa").hidden = !wa; if (wa) $("#wa").href = waUrl;
+  $("#contact").innerHTML = [data.email ? `<a href="mailto:${esc(data.email)}">${esc(data.email)}</a>` : "", wa ? `<a href="${esc(waUrl)}" target="_blank" rel="noopener">WhatsApp</a>` : ""].filter(Boolean).join(" · ");
+
+  renderQuiz();
+  renderSchema();
+}
+
+function renderSchema() {
+  let s = document.getElementById("schema");
+  if (!s) { s = document.createElement("script"); s.type = "application/ld+json"; s.id = "schema"; document.head.appendChild(s); }
+  s.textContent = JSON.stringify({
+    "@context": "https://schema.org", "@type": "ItemList", name: "Ebooks HábitosFixHoy",
+    itemListElement: data.ebooks.map((e, i) => ({
+      "@type": "ListItem", position: i + 1,
+      item: { "@type": "Product", name: e.title, description: e.desc, brand: { "@type": "Brand", name: "HábitosFixHoy" },
+        ...(safeUrl(e.image) ? { image: e.image } : {}),
+        offers: { "@type": "Offer", price: e.price, priceCurrency: "USD", availability: "https://schema.org/InStock", ...(safeUrl(e.hotmartUrl) ? { url: e.hotmartUrl } : {}) } }
+    }))
+  });
+}
+
+/* ---------- Medición (Meta Pixel / GA4), solo si están configurados ---------- */
+function track(ev, params = {}) {
+  try { if (window.fbq) fbq("track", ev, params); } catch (e) {}
+  try { if (window.gtag) gtag("event", ev === "InitiateCheckout" ? "begin_checkout" : "generate_lead", params); } catch (e) {}
+}
+function loadTracking() {
+  if (EDIT) return;
+  const px = (data.metaPixelId || "").replace(/\D/g, "");
+  if (px) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq("init", px); fbq("track", "PageView");
+  }
+  const ga = (data.ga4Id || "").trim();
+  if (/^G-[A-Z0-9]+$/i.test(ga)) {
+    const s = document.createElement("script"); s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + ga; document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+    gtag("js", new Date()); gtag("config", ga);
+  }
+}
+document.addEventListener("click", ev => {
+  const a = ev.target.closest("a.buy");
+  if (a) track("InitiateCheckout", { content_name: a.dataset.name, value: Number(a.dataset.price), currency: "USD" });
+});
+
+/* =================== Panel de edición =================== */
+function saveDraft() { try { localStorage.setItem(DRAFT_KEY, JSON.stringify(data)); } catch (e) { toast("No se pudo guardar el borrador (imagen muy pesada)"); } }
+
+function editorItem(e, i) {
+  const n = data.ebooks.length;
+  const url = e.hotmartUrl || "";
+  const urlWarn = url && !/^https:\/\/(pay\.)?hotmart\.com|^https:\/\/go\.hotmart\.com|^https:\/\//i.test(url);
+  return `<details class="adm-box" data-i="${i}" ${editorItem.open === e.id ? "open" : ""}>
+    <summary><span class="mini">${cover(e)}</span><span class="tt">${esc(e.title || "Ebook sin título")}</span></summary>
+    <div class="fld"><label>Título</label><input data-k="title" value="${esc(e.title)}"></div>
+    <div class="row2">
+      <div class="fld"><label>Categoría</label><select data-k="category">${Object.entries(CATS).map(([k, c]) => `<option value="${k}" ${e.category === k ? "selected" : ""}>${c.emoji} ${c.label}</option>`).join("")}</select></div>
+      <div class="fld"><label>Precio (USD)</label><input data-k="price" type="number" min="0" step="0.01" value="${esc(e.price)}"></div>
+    </div>
+    <div class="fld"><label>Precio anterior tachado (USD, opcional)</label><input data-k="oldPrice" type="number" min="0" step="0.01" value="${esc(e.oldPrice || "")}"></div>
+    <div class="fld"><label>Link de checkout de Hotmart</label><input data-k="hotmartUrl" placeholder="https://pay.hotmart.com/..." value="${esc(url)}">
+      <span class="hint ${urlWarn ? "warn" : ""}">${url ? (safeUrl(url) ? "✓ Link cargado" : "⚠ El link debe empezar con https://") : "Pégalo desde Hotmart → Productos → tu ebook → Links."}</span></div>
+    <div class="fld"><label>Descripción corta</label><textarea data-k="desc">${esc(e.desc)}</textarea></div>
+    <div class="fld"><label>Beneficios (uno por línea)</label><textarea data-k="bullets">${esc((e.bullets || []).join("\n"))}</textarea></div>
+    <div class="fld"><label>Imagen de portada</label>
+      <div class="imgbox">${cover(e)}
+        <div class="acts">
+          <label class="abtn" style="text-align:center">📷 Subir imagen<input type="file" accept="image/*" data-img="${i}" class="sr"></label>
+          <input data-k="image" placeholder="o pega el link de una imagen" value="${esc((e.image || "").startsWith("data:") ? "" : e.image)}" style="font:inherit;border:1px solid var(--line);border-radius:8px;padding:8px 10px">
+          ${e.image ? `<button type="button" class="abtn danger" data-act="noimg">Quitar imagen</button>` : ""}
+        </div>
+      </div>
+      <span class="hint">Ideal: imagen vertical 3:4 (por ejemplo 900×1200). Sin imagen se muestra una portada automática.</span></div>
+    <div class="tools">
+      <button type="button" class="abtn" data-act="up" ${i === 0 ? "disabled" : ""}>↑ Subir</button>
+      <button type="button" class="abtn" data-act="down" ${i === n - 1 ? "disabled" : ""}>↓ Bajar</button>
+      <button type="button" class="abtn" data-act="dup">Duplicar</button>
+      <button type="button" class="abtn danger" data-act="del" style="margin-left:auto">Eliminar</button>
+    </div>
+  </details>`;
+}
+
+function renderEditor() {
+  $("#adm-list").innerHTML = data.ebooks.map(editorItem).join("");
+  document.querySelectorAll("[data-s]").forEach(inp => { inp.value = data[inp.dataset.s] ?? ""; });
+}
+
+function changed(rerenderEditor) { saveDraft(); renderSite(); if (rerenderEditor) renderEditor(); }
+
+function initAdmin() {
+  document.body.classList.add("editing");
+  $("#admin").hidden = false;
+  renderEditor();
+
+  $("#adm-settings").addEventListener("input", ev => {
+    const k = ev.target.dataset.s; if (!k) return;
+    data[k] = k === "guaranteeDays" ? Math.max(0, parseInt(ev.target.value || "0", 10)) : ev.target.value.trim();
+    changed(false);
+  });
+
+  const list = $("#adm-list");
+  list.addEventListener("toggle", ev => { if (ev.target.open) editorItem.open = data.ebooks[ev.target.dataset.i]?.id; }, true);
+
+  list.addEventListener("input", ev => {
+    const box = ev.target.closest("[data-i]"), k = ev.target.dataset.k; if (!box || !k) return;
+    const e = data.ebooks[box.dataset.i];
+    let v = ev.target.value;
+    if (k === "price" || k === "oldPrice") v = parseFloat(v) || 0;
+    if (k === "bullets") v = v.split("\n").map(s => s.trim()).filter(Boolean);
+    if (k === "hotmartUrl" || k === "image") v = v.trim();
+    e[k] = v;
+    if (k === "title") box.querySelector(".tt").textContent = v || "Ebook sin título";
+    if (k === "hotmartUrl") {
+      const h = ev.target.nextElementSibling;
+      h.className = "hint" + (v && !safeUrl(v) ? " warn" : "");
+      h.textContent = v ? (safeUrl(v) ? "✓ Link de checkout cargado" : "⚠ El link debe empezar con https://") : "Pégalo desde Hotmart → Productos → tu ebook → Links.";
+    }
+    changed(k === "image" || k === "category");
+  });
+
+  list.addEventListener("change", ev => {
+    const i = ev.target.dataset.img; if (i === undefined) return;
+    const file = ev.target.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const max = 900, scale = Math.min(1, max / img.width);
+        const c = document.createElement("canvas");
+        c.width = Math.round(img.width * scale); c.height = Math.round(img.height * scale);
+        const ctx = c.getContext("2d"); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, c.width, c.height);
+        ctx.drawImage(img, 0, 0, c.width, c.height);
+        data.ebooks[i].image = c.toDataURL("image/jpeg", 0.82);
+        editorItem.open = data.ebooks[i].id;
+        changed(true); toast("Imagen cargada ✓");
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  list.addEventListener("click", ev => {
+    const b = ev.target.closest("[data-act]"); if (!b) return;
+    const i = +b.closest("[data-i]").dataset.i, arr = data.ebooks;
+    const act = b.dataset.act;
+    if (act === "up" && i > 0) [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
+    if (act === "down" && i < arr.length - 1) [arr[i + 1], arr[i]] = [arr[i], arr[i + 1]];
+    if (act === "dup") { const c = structuredClone(arr[i]); c.id = uid(); c.title += " (copia)"; arr.splice(i + 1, 0, c); editorItem.open = c.id; }
+    if (act === "del") { if (!confirm(`¿Eliminar "${arr[i].title}"?`)) return; arr.splice(i, 1); }
+    if (act === "noimg") arr[i].image = "";
+    changed(true);
+  });
+
+  $("#adm-add").addEventListener("click", () => {
+    const e = { id: uid(), title: "Nuevo ebook", category: "habitos", desc: "", bullets: [], price: 9, oldPrice: 0, hotmartUrl: "", image: "" };
+    data.ebooks.push(e); editorItem.open = e.id; changed(true);
+    setTimeout(() => $("#adm-list").lastElementChild?.scrollIntoView({ behavior: "smooth" }), 50);
+  });
+
+  $("#adm-reset").addEventListener("click", () => {
+    if (!confirm("¿Descartar el borrador y volver a la versión publicada?")) return;
+    try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+    data = structuredClone(PUBLISHED); changed(true); try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+    toast("Cambios descartados");
+  });
+
+  $("#adm-close").addEventListener("click", () => { location.href = location.pathname; });
+
+  $("#adm-export").addEventListener("click", () => {
+    const missing = data.ebooks.filter(e => !safeUrl(e.hotmartUrl)).length;
+    if (missing && !confirm(`${missing} ebook(s) no tienen link de Hotmart y se mostrarán como "Próximamente". ¿Descargar igual?`)) return;
+    const open = '<script id="site-data" type="application/json">';
+    const a = TEMPLATE.indexOf(open) + open.length, b = TEMPLATE.indexOf("</" + "script>", a);
+    const json = "\n" + JSON.stringify(data, null, 2).replace(/</g, "\\u003c") + "\n";
+    const html = TEMPLATE.slice(0, a) + json + TEMPLATE.slice(b);
+    const blob = new Blob([html], { type: "text/html" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob); link.download = "index.html";
+    document.body.appendChild(link); link.click(); link.remove();
+    toast("Descargado: pasáselo a Claude para publicarlo");
+  });
+}
+
+/* ---------- Inicio ---------- */
+$("#year").textContent = new Date().getFullYear();
+renderCountry();
+renderSite();
+loadTracking();
+if (EDIT) initAdmin();
+</script>
+</body>
+</html>
