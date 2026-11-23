@@ -25,7 +25,6 @@ También se puede disparar a mano desde la pestaña Actions, con
     {
       "pantalla": "¿EL AGUINALDO YA TIENE *DUEÑO*?",
       "locucion": "¿El aguinaldo ya tiene dueño antes de que lo cobres?",
-      "pie": "texto chico opcional",
       "paleta": "verde"
     }
   ]
@@ -33,8 +32,11 @@ También se puede disparar a mano desde la pestaña Actions, con
 ```
 
 - `pantalla`: el texto grande. Lo que va entre `*asteriscos*` se pinta en amarillo.
-- `locucion`: lo que se escucha. Define cuánto dura la escena.
-- `pie`: línea chica debajo del texto grande. Opcional.
+- `locucion`: lo que se escucha. Define cuánto dura la escena y alimenta
+  los subtítulos karaoke, que se sincronizan palabra por palabra.
+- `fondo`: URL o ruta de una imagen de fondo. Se oscurece y se tiñe sola
+  para que el texto se lea. Si falta o falla, se genera un fondo con
+  profundidad usando la paleta.
 - `paleta`: `verde`, `oscuro`, `naranja`, `bordo` o `azul`. Si no se indica, van rotando.
 - `serie`: el cartelito de arriba, por ejemplo `1 de 5`. Opcional.
 
