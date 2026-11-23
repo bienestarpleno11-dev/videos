@@ -3,39 +3,46 @@
   "voz": "es-AR-TomasNeural",
   "rate": "+8%",
   "serie": "1 de 5",
+  "creditos": "Imágenes de Pexels: Jakub Zerdzicki, Mikhail Nilov, Artem Podrez, Canshotz, Tima Miroshnichenko",
   "escenas": [
     {
       "pantalla": "¿EL AGUINALDO YA TIENE *DUEÑO*?",
       "locucion": "¿El aguinaldo ya tiene dueño antes de que lo cobres?",
-      "paleta": "verde"
+      "paleta": "verde",
+      "fondo": "https://images.pexels.com/videos/34812223/banknote-banknotes-bill-bills-34812223.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"
     },
     {
       "pantalla": "NO ES QUE SEA *POCO*",
       "locucion": "No es que sea poco. Es que llegó tarde a una lista que ya estaba escrita.",
-      "paleta": "oscuro"
+      "paleta": "oscuro",
+      "fondo": "https://images.pexels.com/videos/6930236/accounting-afro-angry-architect-6930236.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"
     },
     {
       "pantalla": "*1* ANOTALO ANTES DE QUE ENTRE",
       "locucion": "Uno. Anotá hoy en qué se va a ir, antes de que entre. En papel, tres renglones.",
       "pie": "En papel, tres renglones",
-      "paleta": "verde"
+      "paleta": "verde",
+      "fondo": "https://images.pexels.com/videos/8519540/brainstorming-business-business-meeting-business-person-8519540.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"
     },
     {
       "pantalla": "*2* UNA PARTE NO SE TOCA",
       "locucion": "Dos. Una parte no se toca. Aunque sea chica. Si esperamos a que sobre, nunca sobra.",
       "pie": "Aunque sea chica",
-      "paleta": "bordo"
+      "paleta": "bordo",
+      "fondo": "https://images.pexels.com/videos/36639391/pexels-photo-36639391.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"
     },
     {
       "pantalla": "*3* UN GUSTO, DECIDIDO ANTES",
       "locucion": "Tres. Un gusto, pero elegido antes de cobrar. El gusto decidido en el momento es el que duele en enero.",
       "pie": "Elegido antes de cobrar",
-      "paleta": "naranja"
+      "paleta": "naranja",
+      "fondo": "https://images.pexels.com/videos/7735913/pexels-photo-7735913.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"
     },
     {
       "pantalla": "¿YA SABÉS EN QUÉ *SE TE VA*?",
       "locucion": "¿Vos ya sabés en qué se va a ir? Contamelo.",
-      "paleta": "verde"
+      "paleta": "verde",
+      "fondo": "https://images.pexels.com/videos/6266434/pexels-photo-6266434.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630"
     }
   ]
 }
