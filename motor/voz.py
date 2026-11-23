@@ -67,6 +67,25 @@ def a_palabras(tramos, texto, total):
     return palabras
 
 
+def sirve(tiempos_json):
+    """¿El archivo de tiempos está y es del formato nuevo, palabra por palabra?
+
+    Las primeras versiones guardaban frases enteras como si fueran
+    palabras: eso hace que el karaoke no marque nada. Si lo detecta,
+    pide regenerar.
+    """
+    if not tiempos_json.exists():
+        return False
+    try:
+        datos = json.loads(tiempos_json.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+    palabras = datos.get("palabras")
+    if not palabras:
+        return False
+    return not any(" " in p.get("texto", "") for p in palabras)
+
+
 async def decir(texto, voz, rate, mp3, tiempos_json):
     """Guarda el MP3 y, aparte, cuándo arranca y termina cada palabra."""
     ultimo_error = None
@@ -126,7 +145,7 @@ async def procesar(ruta):
         if not texto:
             print(f"  escena {i}: sin locución, se omite")
             continue
-        if mp3.exists() and mp3.stat().st_size > 0 and tiempos.exists():
+        if mp3.exists() and mp3.stat().st_size > 0 and sirve(tiempos):
             print(f"  escena {i}: ya existe")
             continue
         await decir(texto, voz, rate, mp3, tiempos)
