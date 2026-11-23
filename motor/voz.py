@@ -29,27 +29,42 @@ def duracion_mp3(archivo):
     return float(salida.stdout.strip())
 
 
-def repartir(texto, total):
-    """Reparto estimado: cada palabra ocupa según su largo.
+def repartir(texto, desde, hasta):
+    """Reparte las palabras de un tramo según el largo de cada una.
 
-    Se usa sólo si Edge TTS no informa los tiempos reales. Deja un
-    pequeño silencio al principio y al final, como hace la voz.
+    Edge TTS informa los límites de cada frase, no de cada palabra, así
+    que dentro de cada frase se estima. El error queda en centésimas,
+    que para bloques de tres palabras no se nota.
     """
     palabras = texto.split()
+    total = hasta - desde
     if not palabras or total <= 0:
         return []
     pesos = [len(p) + 1.4 for p in palabras]
     suma = sum(pesos)
-    arranque = min(0.12, total * 0.04)
-    util = max(total - arranque - min(0.25, total * 0.06), 0.1)
-    salida, t = [], arranque
+    salida, t = [], desde
     for palabra, peso in zip(palabras, pesos):
-        largo = util * peso / suma
+        largo = total * peso / suma
         salida.append({"texto": palabra,
                        "inicio": round(t, 3),
-                       "fin": round(t + largo * 0.92, 3)})
+                       "fin": round(t + largo * 0.93, 3)})
         t += largo
     return salida
+
+
+def a_palabras(tramos, texto, total):
+    """De los tramos que informó Edge TTS a una lista de palabras."""
+    if not tramos:
+        arranque = min(0.12, total * 0.04)
+        return repartir(texto, arranque, max(total - 0.18, arranque + 0.1))
+    palabras = []
+    for i, tramo in enumerate(tramos):
+        # El final informado a veces se queda corto: estiramos hasta el
+        # arranque del tramo siguiente, o hasta el final del audio.
+        siguiente = tramos[i + 1]["inicio"] if i + 1 < len(tramos) else total
+        fin = max(tramo["fin"], min(siguiente, tramo["fin"] + 0.35))
+        palabras.extend(repartir(tramo["texto"], tramo["inicio"], fin))
+    return palabras
 
 
 async def decir(texto, voz, rate, mp3, tiempos_json):
@@ -58,7 +73,7 @@ async def decir(texto, voz, rate, mp3, tiempos_json):
     for intento in range(3):
         try:
             audio = bytearray()
-            palabras = []
+            tramos = []
             tipos = set()
             comunicar = edge_tts.Communicate(texto, voz, rate=rate)
             async for parte in comunicar.stream():
@@ -70,7 +85,7 @@ async def decir(texto, voz, rate, mp3, tiempos_json):
                     # Edge TTS informa en unidades de 100 nanosegundos.
                     inicio = parte["offset"] / 10_000_000
                     largo = parte.get("duration", 0) / 10_000_000
-                    palabras.append({
+                    tramos.append({
                         "texto": parte["text"],
                         "inicio": round(inicio, 3),
                         "fin": round(inicio + largo, 3),
@@ -79,12 +94,11 @@ async def decir(texto, voz, rate, mp3, tiempos_json):
                 raise RuntimeError("Edge TTS no devolvió audio")
             mp3.write_bytes(bytes(audio))
 
-            origen = "edge-tts"
-            if not palabras:
-                origen = "estimado"
-                palabras = repartir(texto, duracion_mp3(mp3))
-                print(f"    sin tiempos de Edge TTS (tipos: {sorted(tipos)}), "
-                      f"se estiman por largo de palabra")
+            total = duracion_mp3(mp3)
+            palabras = a_palabras(tramos, texto, total)
+            origen = f"{len(tramos)} tramos de Edge TTS" if tramos else "estimado"
+            if not tramos:
+                print(f"    sin tramos de Edge TTS (tipos: {sorted(tipos)})")
 
             tiempos_json.write_text(
                 json.dumps({"origen": origen, "palabras": palabras},
