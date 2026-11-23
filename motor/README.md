@@ -34,13 +34,26 @@ También se puede disparar a mano desde la pestaña Actions, con
 - `pantalla`: el texto grande. Lo que va entre `*asteriscos*` se pinta en amarillo.
 - `locucion`: lo que se escucha. Define cuánto dura la escena y alimenta
   los subtítulos karaoke, que se sincronizan palabra por palabra.
-- `fondo`: URL o ruta de una imagen de fondo. Se oscurece y se tiñe sola
-  para que el texto se lea. Si falta o falla, se genera un fondo con
-  profundidad usando la paleta.
+- `video`: URL o ruta de un clip MP4 vertical de fondo. Es lo que mejor
+  queda: metraje real en movimiento. Si el clip dura menos que la escena,
+  se repite.
+- `fondo`: una imagen, por si no hay clip. Lleva un zoom lento.
+- Si no hay ni `video` ni `fondo`, se genera un fondo con profundidad a
+  partir de la paleta. El orden de preferencia es video, imagen, generado.
+
+Sobre el metraje real se aplica solo un oscurecido, un tinte de la paleta,
+un degradado abajo y una viñeta, para que el texto blanco se lea siempre.
 - `paleta`: `verde`, `oscuro`, `naranja`, `bordo` o `azul`. Si no se indica, van rotando.
 - `serie`: el cartelito de arriba, por ejemplo `1 de 5`. Opcional.
 
 La última escena lleva `habitosfixhoy` abajo, siempre.
+
+## Música
+
+Si hay un MP3 en `motor/musica/`, se mezcla solo bajo la voz, con entrada
+y salida suaves. Se usa el primero por orden alfabético. Con `musica` en
+el guion se puede indicar otro, y con `volumen_musica` subirlo o bajarlo
+(por defecto 0.08, bien atrás).
 
 ## Voces argentinas
 

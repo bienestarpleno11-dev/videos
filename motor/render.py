@@ -96,26 +96,40 @@ def envolver(draw, palabras, fnt, ancho_max):
 
 # ---------------------------------------------------------------- fondo
 
-def traer_imagen(origen):
-    """Devuelve la imagen de un `fondo`: ruta del repo o URL. None si falla."""
+def traer_archivo(origen, sufijo):
+    """Baja una URL a la carpeta de trabajo, o resuelve una ruta del repo."""
     if not origen:
         return None
     try:
         if origen.startswith(("http://", "https://")):
+            import hashlib
             import urllib.request
             cache = TRABAJO / "fondos"
             cache.mkdir(parents=True, exist_ok=True)
-            destino = cache / (str(abs(hash(origen))) + ".img")
-            if not destino.exists():
+            nombre = hashlib.sha1(origen.encode("utf-8")).hexdigest()[:16]
+            destino = cache / f"{nombre}{sufijo}"
+            if not destino.exists() or destino.stat().st_size == 0:
                 pedido = urllib.request.Request(
                     origen, headers={"User-Agent": "habitosfixhoy-motor/1.0"})
-                with urllib.request.urlopen(pedido, timeout=45) as r:
+                with urllib.request.urlopen(pedido, timeout=90) as r:
                     destino.write_bytes(r.read())
-            return Image.open(destino).convert("RGB")
+            return destino
         ruta = BASE / origen
-        return Image.open(ruta).convert("RGB") if ruta.exists() else None
+        return ruta if ruta.exists() else None
     except Exception as error:
-        print(f"  aviso: no pude usar el fondo {origen}: {error}")
+        print(f"  aviso: no pude traer {origen}: {error}")
+        return None
+
+
+def traer_imagen(origen):
+    """Devuelve la imagen de un `fondo`: ruta del repo o URL. None si falla."""
+    ruta = traer_archivo(origen, ".img")
+    if ruta is None:
+        return None
+    try:
+        return Image.open(ruta).convert("RGB")
+    except Exception as error:
+        print(f"  aviso: no pude abrir el fondo {origen}: {error}")
         return None
 
 
@@ -312,10 +326,88 @@ def duracion(archivo):
     return float(salida.stdout.strip())
 
 
+def musica_por_defecto():
+    """Primer MP3 que haya en motor/musica/, si es que hay alguno."""
+    carpeta = BASE / "motor" / "musica"
+    if not carpeta.exists():
+        return None
+    pistas = sorted(carpeta.glob("*.mp3"))
+    return str(pistas[0].relative_to(BASE)) if pistas else None
+
+
+def capa_tratamiento(paleta):
+    """Oscurecido, tinte y degradado inferior, sobre metraje real.
+
+    Va debajo del texto y encima del video, para que el blanco se lea
+    sobre cualquier imagen sin tapar lo que se ve.
+    """
+    col = PALETAS[paleta]
+    capa = Image.new("RGBA", (ANCHO, ALTO), col["base"] + (108,))
+    oscuro = Image.new("RGBA", (ANCHO, ALTO), (0, 0, 0, 70))
+    capa.alpha_composite(oscuro)
+
+    # Degradado inferior para apoyar los subtítulos
+    alto_grad = ALTO - 900
+    grad = Image.new("RGBA", (1, alto_grad))
+    px = grad.load()
+    for y in range(alto_grad):
+        px[0, y] = (0, 0, 0, int(165 * (y / (alto_grad - 1)) ** 1.5))
+    capa.alpha_composite(grad.resize((ANCHO, alto_grad)), (0, 900))
+
+    # Viñeta
+    vineta = Image.new("L", (ANCHO // 6, ALTO // 6), 110)
+    ImageDraw.Draw(vineta).ellipse(
+        [ANCHO // 60, ALTO // 60, ANCHO // 6 - ANCHO // 60, ALTO // 6 - ALTO // 60],
+        fill=0)
+    vineta = vineta.filter(ImageFilter.GaussianBlur(ALTO // 120)).resize((ANCHO, ALTO))
+    negro = Image.new("RGBA", (ANCHO, ALTO), (0, 0, 0, 0))
+    negro.putalpha(vineta)
+    capa.alpha_composite(negro)
+    return capa
+
+
+def entrada_de_fondo(escena, paleta, semilla, segundos):
+    """Arma los argumentos de ffmpeg para el fondo de la escena.
+
+    Devuelve (argumentos de entrada, filtro, hay_metraje_real).
+    """
+    cuadros = max(int(segundos * FPS), 1)
+
+    clip = traer_archivo(escena.get("video"), ".mp4")
+    if clip is not None:
+        # Metraje real: se repite si es más corto que la escena y se
+        # recorta al vertical sin deformar.
+        entrada = ["-stream_loop", "-1", "-i", str(clip)]
+        filtro = (f"scale={ANCHO}:{ALTO}:force_original_aspect_ratio=increase,"
+                  f"crop={ANCHO}:{ALTO},fps={FPS},"
+                  f"eq=saturation=1.08:contrast=1.04")
+        return entrada, filtro, True
+
+    foto = escena.get("fondo")
+    if foto and traer_imagen(foto) is not None:
+        ruta = traer_archivo(foto, ".img")
+        entrada = ["-loop", "1", "-i", str(ruta)]
+        filtro = (f"scale={ANCHO * 2}:{ALTO * 2}:force_original_aspect_ratio=increase,"
+                  f"crop={ANCHO * 2}:{ALTO * 2},"
+                  f"zoompan=z='min(zoom+0.0007,1.14)':d={cuadros}:"
+                  f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+                  f"s={ANCHO}x{ALTO}:fps={FPS}")
+        return entrada, filtro, True
+
+    # Sin material: fondo generado con profundidad
+    generado = fondo_escena(paleta, semilla)
+    ruta = TRABAJO / f"generado-{semilla}.png"
+    generado.save(ruta, "PNG")
+    entrada = ["-loop", "1", "-i", str(ruta)]
+    filtro = (f"zoompan=z='min(zoom+0.0005,1.10)':d={cuadros}:"
+              f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+              f"s={ANCHO}x{ALTO}:fps={FPS}")
+    return entrada, filtro, False
+
+
 def render_escena(escena, paleta, serie, es_ultima, segundos, palabras_voz,
                   salida, avance_desde, avance_hasta, semilla):
-    """Escribe el MP4 de una escena, cuadro por cuadro."""
-    fondo = fondo_escena(paleta, semilla, escena.get("fondo"))
+    """Compone la escena: fondo por ffmpeg, texto y subtítulos por encima."""
     medidor = ImageDraw.Draw(Image.new("RGB", (10, 10)))
     titular, alto_titular = capa_titular(escena, paleta, medidor)
     fija = capa_fija(paleta, serie, es_ultima)
@@ -325,64 +417,63 @@ def render_escena(escena, paleta, serie, es_ultima, segundos, palabras_voz,
     total = max(int(segundos * FPS), 1)
     y_titular = TOPE_SEGURO + (PISO_SEGURO - TOPE_SEGURO - alto_titular) // 2 - 60
 
-    cmd = ["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
-           "-s", f"{ANCHO}x{ALTO}", "-r", str(FPS), "-i", "-",
-           "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-           "-pix_fmt", "yuv420p", str(salida)]
-    proceso = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL,
-                               stderr=subprocess.DEVNULL)
+    entrada, filtro_fondo, metraje = entrada_de_fondo(escena, paleta, semilla, segundos)
+    tratamiento = capa_tratamiento(paleta) if metraje else None
 
-    sobra_x = fondo.width - ANCHO
-    sobra_y = fondo.height - ALTO
+    cmd = (["ffmpeg", "-y"] + entrada +
+           ["-f", "rawvideo", "-pix_fmt", "rgba",
+            "-s", f"{ANCHO}x{ALTO}", "-r", str(FPS), "-i", "-",
+            "-filter_complex",
+            f"[0:v]{filtro_fondo}[bg];[bg][1:v]overlay=format=auto[v]",
+            "-map", "[v]", "-an", "-t", f"{segundos:.3f}",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+            "-pix_fmt", "yuv420p", str(salida)])
+    proceso = subprocess.Popen(cmd, stdin=subprocess.PIPE,
+                               stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
 
-    for n in range(total):
-        t = n / FPS
-        avance = n / max(total - 1, 1)
+    try:
+        for n in range(total):
+            t = n / FPS
+            avance = n / max(total - 1, 1)
 
-        # Deriva lenta del fondo + golpe de zoom al entrar
-        golpe = 1.0 + 0.055 * (1 - suavizar(t / 0.45)) if t < 0.45 else 1.0
-        dx = int(sobra_x * (0.25 + 0.5 * avance))
-        dy = int(sobra_y * (0.70 - 0.45 * avance))
-        recorte = fondo.crop((dx, dy, dx + ANCHO, dy + ALTO))
-        if golpe > 1.0:
-            lado_w, lado_h = int(ANCHO * golpe), int(ALTO * golpe)
-            recorte = recorte.resize((lado_w, lado_h), Image.LANCZOS).crop(
-                ((lado_w - ANCHO) // 2, (lado_h - ALTO) // 2,
-                 (lado_w - ANCHO) // 2 + ANCHO, (lado_h - ALTO) // 2 + ALTO))
-        cuadro = recorte.convert("RGBA")
+            cuadro = Image.new("RGBA", (ANCHO, ALTO), (0, 0, 0, 0))
+            if tratamiento is not None:
+                cuadro.alpha_composite(tratamiento)
 
-        # Titular: sube y aparece
-        prog = suavizar(t / 0.38)
-        if prog > 0:
-            capa = titular if prog >= 1 else titular.copy()
-            if prog < 1:
-                alfa = capa.getchannel("A").point(lambda v: int(v * prog))
-                capa.putalpha(alfa)
-            cuadro.alpha_composite(capa, (0, int(y_titular + 46 * (1 - prog))))
+            # Titular: sube y aparece
+            prog = suavizar(t / 0.38)
+            if prog > 0:
+                capa = titular if prog >= 1 else titular.copy()
+                if prog < 1:
+                    alfa = capa.getchannel("A").point(lambda v: int(v * prog))
+                    capa.putalpha(alfa)
+                cuadro.alpha_composite(capa, (0, int(y_titular + 46 * (1 - prog))))
 
-        cuadro.alpha_composite(fija)
+            cuadro.alpha_composite(fija)
+            dib = ImageDraw.Draw(cuadro, "RGBA")
 
-        dib = ImageDraw.Draw(cuadro, "RGBA")
+            # Subtítulo karaoke
+            for bloque in bloques:
+                if bloque["inicio"] - 0.08 <= t <= bloque["fin"] + 0.18:
+                    dibujar_subtitulo(dib, bloque, t, paleta)
+                    break
 
-        # Subtítulo karaoke
-        for bloque in bloques:
-            if bloque["inicio"] - 0.08 <= t <= bloque["fin"] + 0.18:
-                dibujar_subtitulo(dib, bloque, t, paleta)
-                break
+            # Barra de progreso de todo el video
+            pos = avance_desde + (avance_hasta - avance_desde) * avance
+            dib.rounded_rectangle([MARGEN, 74, ANCHO - MARGEN, 82], radius=4,
+                                  fill=(255, 255, 255, 55))
+            if pos > 0:
+                dib.rounded_rectangle(
+                    [MARGEN, 74, MARGEN + (ANCHO - 2 * MARGEN) * pos, 82],
+                    radius=4, fill=col["acento"] + (255,))
 
-        # Barra de progreso de todo el video
-        pos = avance_desde + (avance_hasta - avance_desde) * avance
-        dib.rounded_rectangle([MARGEN, 74, ANCHO - MARGEN, 82], radius=4,
-                              fill=(255, 255, 255, 55))
-        if pos > 0:
-            dib.rounded_rectangle(
-                [MARGEN, 74, MARGEN + (ANCHO - 2 * MARGEN) * pos, 82],
-                radius=4, fill=col["acento"] + (255,))
-
-        proceso.stdin.write(cuadro.convert("RGB").tobytes())
-
-    proceso.stdin.close()
-    proceso.wait()
+            proceso.stdin.write(cuadro.tobytes())
+    finally:
+        proceso.stdin.close()
+        error = proceso.stderr.read().decode("utf-8", "ignore")
+        proceso.wait()
+    if proceso.returncode != 0:
+        raise RuntimeError(f"ffmpeg falló en la escena:\n{error[-1500:]}")
 
 
 def main(ruta_guion):
@@ -444,11 +535,29 @@ def main(ruta_guion):
     lista.write_text("".join(f"file '{p}'\n" for p in partes), encoding="utf-8")
 
     final = SHORTS / f"{rid}.mp4"
-    subprocess.run(
-        ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lista),
-         "-c:v", "libx264", "-crf", "20", "-pix_fmt", "yuv420p",
-         "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(final)],
-        check=True, capture_output=True)
+    musica = traer_archivo(guion.get("musica") or musica_por_defecto(), ".mp3")
+
+    if musica is not None:
+        # La música va muy por debajo de la voz, con entrada y salida suaves.
+        volumen = float(guion.get("volumen_musica", 0.08))
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lista),
+             "-stream_loop", "-1", "-i", str(musica),
+             "-filter_complex",
+             f"[1:a]volume={volumen},afade=t=in:st=0:d=1.2,"
+             f"afade=t=out:st={max(total_video - 1.4, 0.1):.2f}:d=1.4[mus];"
+             f"[0:a][mus]amix=inputs=2:duration=first:dropout_transition=0,"
+             f"alimiter=limit=0.95[a]",
+             "-map", "0:v", "-map", "[a]",
+             "-c:v", "libx264", "-crf", "20", "-pix_fmt", "yuv420p",
+             "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(final)],
+            check=True, capture_output=True)
+    else:
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lista),
+             "-c:v", "libx264", "-crf", "20", "-pix_fmt", "yuv420p",
+             "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(final)],
+            check=True, capture_output=True)
 
     print(f"Listo: {final}  ({duracion(final):.1f}s)")
     return final
