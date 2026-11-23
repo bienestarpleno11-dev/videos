@@ -1,0 +1,41 @@
+{
+  "id": "2026-11-24-aguinaldo",
+  "voz": "es-AR-TomasNeural",
+  "rate": "+8%",
+  "serie": "1 de 5",
+  "escenas": [
+    {
+      "pantalla": "¿EL AGUINALDO YA TIENE *DUEÑO*?",
+      "locucion": "¿El aguinaldo ya tiene dueño antes de que lo cobres?",
+      "paleta": "verde"
+    },
+    {
+      "pantalla": "NO ES QUE SEA *POCO*",
+      "locucion": "No es que sea poco. Es que llegó tarde a una lista que ya estaba escrita.",
+      "paleta": "oscuro"
+    },
+    {
+      "pantalla": "*1* ANOTALO ANTES DE QUE ENTRE",
+      "locucion": "Uno. Anotá hoy en qué se va a ir, antes de que entre. En papel, tres renglones.",
+      "pie": "En papel, tres renglones",
+      "paleta": "verde"
+    },
+    {
+      "pantalla": "*2* UNA PARTE NO SE TOCA",
+      "locucion": "Dos. Una parte no se toca. Aunque sea chica. Si esperamos a que sobre, nunca sobra.",
+      "pie": "Aunque sea chica",
+      "paleta": "bordo"
+    },
+    {
+      "pantalla": "*3* UN GUSTO, DECIDIDO ANTES",
+      "locucion": "Tres. Un gusto, pero elegido antes de cobrar. El gusto decidido en el momento es el que duele en enero.",
+      "pie": "Elegido antes de cobrar",
+      "paleta": "naranja"
+    },
+    {
+      "pantalla": "¿YA SABÉS EN QUÉ *SE TE VA*?",
+      "locucion": "¿Vos ya sabés en qué se va a ir? Contamelo.",
+      "paleta": "verde"
+    }
+  ]
+}
