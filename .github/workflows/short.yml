@@ -44,6 +44,13 @@ jobs:
       - name: Armar el video
         run: python motor/render.py ${{ github.event.inputs.guion }}
 
+      - name: Subir como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: shorts
+          path: shorts/*.mp4
+          if-no-files-found: ignore
+
       - name: Guardar
         run: |
           git config user.name "short-bot"
@@ -54,15 +61,13 @@ jobs:
             exit 0
           fi
           git commit -m "Short armado"
+          # Ante un choque con otra corrida, gana lo que acabamos de generar:
+          # los MP4 son binarios y no se pueden fusionar.
           for i in 1 2 3; do
-            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            if git pull --rebase -X theirs origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
             sleep 5
           done
           exit 1
-
-      - name: Subir como artefacto
-        uses: actions/upload-artifact@v4
-        with:
-          name: shorts
-          path: shorts/*.mp4
-          if-no-files-found: ignore
