@@ -1,0 +1,45 @@
+{
+  "id": "2026-12-02-sueldo-por-hora",
+  "voz": "es-AR-TomasNeural",
+  "rate": "+8%",
+  "serie": "5 de 5",
+  "creditos": "Clips de Pexels, con crédito a sus autores en la descripción del video.",
+  "escenas": [
+    {
+      "pantalla": "¿CUÁNTO GANÁS *POR HORA*?",
+      "locucion": "¿Sabés cuánto ganás por hora? Y no, no es el sueldo dividido las horas del contrato.",
+      "paleta": "verde",
+      "video": "https://videos.pexels.com/video-files/34458379/14600986_1080_1920_30fps.mp4"
+    },
+    {
+      "pantalla": "FALTAN HORAS EN ESA *CUENTA*",
+      "locucion": "A esa cuenta le faltan horas. Y las horas que faltan no te las pagan.",
+      "paleta": "oscuro",
+      "video": "https://videos.pexels.com/video-files/39417081/16783409_1080_1920_60fps.mp4"
+    },
+    {
+      "pantalla": "*1* SUMÁ EL VIAJE",
+      "locucion": "Uno. Sumá el viaje. Ida y vuelta, todos los días. Esas horas son del trabajo aunque no estés trabajando.",
+      "paleta": "azul",
+      "video": "https://videos.pexels.com/video-files/36538096/15493581_1080_1920_30fps.mp4"
+    },
+    {
+      "pantalla": "*2* SUMÁ LO QUE SE ESTIRA",
+      "locucion": "Dos. Sumá lo que se estira. El rato de más, el mensaje del domingo, el que te quedaste.",
+      "paleta": "bordo",
+      "video": "https://videos.pexels.com/video-files/10374888/10374888-hd_1080_1920_24fps.mp4"
+    },
+    {
+      "pantalla": "*3* DIVIDÍ CON ESE TOTAL",
+      "locucion": "Tres. Dividí el sueldo por ese total, no por el del contrato. Ese es tu número real.",
+      "paleta": "naranja",
+      "video": "https://videos.pexels.com/video-files/6326861/6326861-hd_1080_2048_25fps.mp4"
+    },
+    {
+      "pantalla": "¿TE DIO *MENOS*?",
+      "locucion": "¿Te dio bastante menos de lo que pensabas? Contamelo.",
+      "paleta": "verde",
+      "video": "https://videos.pexels.com/video-files/34458379/14600986_1080_1920_30fps.mp4"
+    }
+  ]
+}

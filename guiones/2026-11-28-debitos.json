@@ -1,0 +1,45 @@
+{
+  "id": "2026-11-28-debitos",
+  "voz": "es-AR-TomasNeural",
+  "rate": "+8%",
+  "serie": "3 de 5",
+  "creditos": "Clips de Pexels, con crédito a sus autores en la descripción del video.",
+  "escenas": [
+    {
+      "pantalla": "¿CUÁNTAS COSAS TE *DEBITAN*?",
+      "locucion": "¿Cuántas cosas te debitan todos los meses? Pensá un número.",
+      "paleta": "verde",
+      "video": "https://videos.pexels.com/video-files/10374888/10374888-hd_1080_1920_24fps.mp4"
+    },
+    {
+      "pantalla": "CASI SIEMPRE SON *MÁS*",
+      "locucion": "Casi siempre son más de las que pensaste. No porque gastes mal: porque no las ves pasar.",
+      "paleta": "oscuro",
+      "video": "https://videos.pexels.com/video-files/6898096/6898096-hd_1080_1920_25fps.mp4"
+    },
+    {
+      "pantalla": "*1* ABRÍ EL RESUMEN",
+      "locucion": "Uno. Abrí el resumen de la tarjeta. No el de este mes: el del mes pasado, que ya está cerrado.",
+      "paleta": "azul",
+      "video": "https://videos.pexels.com/video-files/6342238/6342238-hd_1080_1920_24fps.mp4"
+    },
+    {
+      "pantalla": "*2* MARCÁ LOS QUE SE REPITEN",
+      "locucion": "Dos. Marcá los que se repiten todos los meses. Esos son los que deciden si te alcanza.",
+      "paleta": "bordo",
+      "video": "https://videos.pexels.com/video-files/8519540/8519540-hd_1080_1920_30fps.mp4"
+    },
+    {
+      "pantalla": "*3* UNA PREGUNTA POR CADA UNO",
+      "locucion": "Tres. Por cada uno: ¿lo usé en los últimos treinta días? Si la respuesta es no, ya sabés.",
+      "paleta": "naranja",
+      "video": "https://videos.pexels.com/video-files/10374888/10374888-hd_1080_1920_24fps.mp4"
+    },
+    {
+      "pantalla": "¿CUÁNTOS TE *DIERON*?",
+      "locucion": "¿Cuántos te dieron? Tirá el número acá abajo.",
+      "paleta": "verde",
+      "video": "https://videos.pexels.com/video-files/6898096/6898096-hd_1080_1920_25fps.mp4"
+    }
+  ]
+}

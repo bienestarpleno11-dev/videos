@@ -1,0 +1,45 @@
+{
+  "id": "2026-11-26-cuotas",
+  "voz": "es-AR-TomasNeural",
+  "rate": "+8%",
+  "serie": "2 de 5",
+  "creditos": "Clips de Pexels, con crédito a sus autores en la descripción del video.",
+  "escenas": [
+    {
+      "pantalla": "¿12 CUOTAS *SIN INTERÉS*?",
+      "locucion": "Doce cuotas sin interés. Suena a regalo.",
+      "paleta": "verde",
+      "video": "https://videos.pexels.com/video-files/7669652/7669652-hd_1080_1920_25fps.mp4"
+    },
+    {
+      "pantalla": "EL INTERÉS NO *DESAPARECIÓ*",
+      "locucion": "El interés no desapareció. Cambió de lugar: se mudó al precio.",
+      "paleta": "oscuro",
+      "video": "https://videos.pexels.com/video-files/8541111/8541111-hd_1080_1920_30fps.mp4"
+    },
+    {
+      "pantalla": "*1* PREGUNTÁ EL PRECIO CONTADO",
+      "locucion": "Uno. Antes de firmar, preguntá cuánto sale pagando todo junto. Esa sola pregunta te da el número real.",
+      "paleta": "azul",
+      "video": "https://videos.pexels.com/video-files/7619742/7619742-hd_1080_1920_25fps.mp4"
+    },
+    {
+      "pantalla": "*2* COMPARÁ LOS DOS TOTALES",
+      "locucion": "Dos. Compará ese número con la cuota por doce. Si no da igual, ahí está el interés.",
+      "paleta": "bordo",
+      "video": "https://videos.pexels.com/video-files/34812223/14759438_1080_1920_25fps.mp4"
+    },
+    {
+      "pantalla": "*3* DECIDÍ CON LOS DOS NÚMEROS",
+      "locucion": "Tres. Recién ahí decidís. A veces igual conviene la cuota. Pero elegiste vos.",
+      "paleta": "naranja",
+      "video": "https://videos.pexels.com/video-files/6342238/6342238-hd_1080_1920_24fps.mp4"
+    },
+    {
+      "pantalla": "¿TE LO *BAJARON* ALGUNA VEZ?",
+      "locucion": "¿Alguna vez pediste el precio contado y te lo bajaron? Contamelo.",
+      "paleta": "verde",
+      "video": "https://videos.pexels.com/video-files/7669652/7669652-hd_1080_1920_25fps.mp4"
+    }
+  ]
+}

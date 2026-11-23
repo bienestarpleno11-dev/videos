@@ -1,0 +1,45 @@
+{
+  "id": "2026-11-30-imprevisto",
+  "voz": "es-AR-TomasNeural",
+  "rate": "+8%",
+  "serie": "4 de 5",
+  "creditos": "Clips de Pexels, con crédito a sus autores en la descripción del video.",
+  "escenas": [
+    {
+      "pantalla": "¿Y SI SE ROMPE LA *HELADERA*?",
+      "locucion": "¿Qué hacés si mañana se te rompe la heladera?",
+      "paleta": "verde",
+      "video": "https://videos.pexels.com/video-files/30205992/12951138_1080_1920_30fps.mp4"
+    },
+    {
+      "pantalla": "NO HACE FALTA UN FONDO DE *6 MESES*",
+      "locucion": "Y no, no te voy a decir que ahorres seis meses de sueldo. Eso suena imposible y por eso nadie empieza.",
+      "paleta": "oscuro",
+      "video": "https://videos.pexels.com/video-files/5418706/5418706-hd_1080_1920_25fps.mp4"
+    },
+    {
+      "pantalla": "*1* UN SOLO IMPREVISTO",
+      "locucion": "Uno. Apuntá a cubrir un imprevisto. Uno solo. El más probable de tu casa.",
+      "paleta": "azul",
+      "video": "https://videos.pexels.com/video-files/6595464/6595464-hd_1080_1920_30fps.mp4"
+    },
+    {
+      "pantalla": "*2* PONELE NÚMERO Y NOMBRE",
+      "locucion": "Dos. Ponele número y nombre. Heladera es un objetivo. Emergencias no es nada.",
+      "paleta": "bordo",
+      "video": "https://videos.pexels.com/video-files/8519540/8519540-hd_1080_1920_30fps.mp4"
+    },
+    {
+      "pantalla": "*3* QUE NO ESTÉ A MANO",
+      "locucion": "Tres. Que no esté donde lo ves todos los días. Lo que está a mano se gasta.",
+      "paleta": "naranja",
+      "video": "https://videos.pexels.com/video-files/36639391/15533731_1080_1920_30fps.mp4"
+    },
+    {
+      "pantalla": "¿CUÁL SERÍA *EL TUYO*?",
+      "locucion": "¿Cuál sería el imprevisto más probable en tu casa? Contamelo.",
+      "paleta": "verde",
+      "video": "https://videos.pexels.com/video-files/30205992/12951138_1080_1920_30fps.mp4"
+    }
+  ]
+}
